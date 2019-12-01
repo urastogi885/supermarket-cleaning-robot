@@ -53,6 +53,8 @@ to access our Sprint notes document.
 - Open the *UML* directory of the project.
 - Access UML diagrams from the *initial* folder located within *UML* sub-directory.
 
+## API Documentations
+
 ## Dependencies
 
 - Ubuntu 16.04
@@ -99,3 +101,11 @@ git clone --recursive https://github.com/urastogi885/obstacle_avoidance_simulati
 cd ..
 catkin_make
 ```
+
+## Test
+
+## Run
+
+## Demo
+
+## Known Bugs
