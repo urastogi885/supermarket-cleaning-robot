@@ -31,7 +31,7 @@ has an obstacle avoidance feature that is used to prevent the robot from collidi
 humans, uninteresting items and walls/shelves.
 
 <p align="center">
-<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/phase1/readme_images/initial_proposal_setup.png">
+<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/readme_images/initial_proposal_setup.png">
 <b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b>
 </p>
 
