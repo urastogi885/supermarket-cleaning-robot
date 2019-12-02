@@ -24,21 +24,23 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @file obstacle_avoidance.h
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Library header file to implement obstacle avoidance
  */
 
-#ifndef INCLUDE_OBSTACLE_AVOIDANCE_H_
-#define INCLUDE_OBSTACLE_AVOIDANCE_H_
+/**
+ * @file    obstacle_avoidance.h
+ * @author  Umang Rastogi   - Driver
+ * @author  Naman Gupta     - Navigator
+ * @brief   Library header file to implement obstacle avoidance
+ */
+
+#ifndef INCLUDE_OBSTACLE_AVOIDANCE_OBSTACLE_AVOIDANCE_H_
+#define INCLUDE_OBSTACLE_AVOIDANCE_OBSTACLE_AVOIDANCE_H_
 
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
 
 class ObstacleAvoidance {
-private:
+ private:
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Define a subscriber object to data of the laser sensor
@@ -48,7 +50,7 @@ private:
   /// Initalize minimum safe distance from an obstacle
   float distanceThreshold;
 
-public:
+ public:
   /**
   * @brief Constructor for obstacle avoidance class
   * @param none
@@ -61,7 +63,7 @@ public:
   * @param safe distance from an obstacle
   * @return a constructor has no return
   */
-  ObstacleAvoidance(float distThreshold);
+  explicit ObstacleAvoidance(float distThreshold);
 
   /**
   * @brief Destructor for obstacle avoidance class
@@ -76,7 +78,7 @@ public:
   * @return void
   */
   void laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& \
-  												sensorData);
+                      sensorData);
 
   /**
   * @brief Checks if obstacle is present within safe distance
@@ -102,6 +104,6 @@ public:
   void setObstacleDetected(bool obstacle) {
     obstacleDetected = obstacle;
   }
-];
+};
 
-#endif	//	INCLUDE_OBSTACLE_AVOIDANCE_H_
+#endif  // INCLUDE_OBSTACLE_AVOIDANCE_OBSTACLE_AVOIDANCE_H_

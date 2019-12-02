@@ -24,23 +24,25 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @file turtlebot.h
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Library header file to control motion of the bot
- * @detail Takes input from both, obstacle avoidance and object detection
  */
 
-#ifndef INCLUDE_TURTLEBOT_H_
-#define INCLUDE_TURTLEBOT_H_
+/**
+ * @file    turtlebot.h
+ * @author  Umang Rastogi   - Driver
+ * @author  Naman Gupta     - Navigator
+ * @brief   Library header file to control motion of the bot
+ * @detail  Takes input from both, obstacle avoidance and object detection
+ */
+
+#ifndef INCLUDE_TURTLEBOT_TURTLEBOT_H_
+#define INCLUDE_TURTLEBOT_TURTLEBOT_H_
 
 /// Add ROS headers
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
 
 class Turtlebot {
-private:
+ private:
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Define a publisher object to publish velocities for the robot
@@ -54,7 +56,7 @@ private:
   /// Initialize publishing rate
   const int publishRate = 2;
 
-public:
+ public:
 	/**
   * @brief Constructor for obstacle avoidance class
   * @param none
@@ -122,4 +124,4 @@ public:
   bool checkVelocityChanged();
 };
 
-#endif	//	INCLUDE_TURTLEBOT_H_
+#endif  // INCLUDE_TURTLEBOT_TURTLEBOT_H_

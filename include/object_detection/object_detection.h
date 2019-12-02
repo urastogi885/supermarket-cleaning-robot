@@ -24,16 +24,18 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @file object_detection.h
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Library header file to implement object detection
- * @detail Deploys template matching to detect object in the bot's world
  */
 
-#ifndef INCLUDE_OBJECT_DETECTION_H_
-#define INCLUDE_OBJECT_DETECTION_H_
+/**
+ * @file 	object_detection.h
+ * @author 	Umang Rastogi 	- Driver
+ * @author 	Naman Gupta 	- Navigator
+ * @brief 	Library header file to implement object detection
+ * @detail 	Deploys template matching to detect object in the bot's world
+ */
+
+#ifndef INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
+#define INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 
 #include "ros/ros.h"
 #include "sensor_msgs/Image.h"
@@ -44,8 +46,8 @@
 #include "opencv2/imgproc/imgproc.hpp"
 
 class ObjectDectection {
-private:
-	/// Define the main access point to communications with the ROS system
+ private:
+  /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Define a publisher object to publish velocities for the robot
   ros::Publisher publishLocation;
@@ -56,9 +58,9 @@ private:
   /// Store copy of the ros image converted into cv image
   cv::Mat convertedImage;
   /// Define object coordinates
-  cv::Rect objectLocation; 
+  cv::Rect objectLocation;
 
-public:
+ public:
 	/**
   * @brief Constructor for object detection class
   * @param none
@@ -96,4 +98,4 @@ public:
   cv::Rect getObjectLocation();
 };
 
-#endif	//	INCLUDE_OBJECT_DETECTION_H_
+#endif  // INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_

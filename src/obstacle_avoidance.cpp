@@ -39,7 +39,7 @@
 #include "obstacle_avoidance/obstacle_avoidance.h"
 
 ObstacleAvoidance::ObstacleAvoidance() {
-	ROS_INFO_STREAM("Setting up obstacle avoidance for the robot...");
+  ROS_INFO_STREAM("Setting up obstacle avoidance for the robot...");
   /// Initialize the current value of velocities in m/s and rad/s
   linearVelocity = 1.0;
   anguarVelocity = 0.52;
@@ -54,7 +54,7 @@ ObstacleAvoidance::ObstacleAvoidance() {
 }
 
 ObstacleAvoidance::ObstacleAvoidance(float distThreshold) {
-	ROS_INFO_STREAM("Setting up obstacle avoidance for the robot...");
+  ROS_INFO_STREAM("Setting up obstacle avoidance for the robot...");
   /// Initialize obstacle detected value with false
   obstacleDetected = false;
   /// Initialize safe distance from an obstacle in meters
@@ -67,9 +67,9 @@ ObstacleAvoidance::ObstacleAvoidance(float distThreshold) {
 
 ObstacleAvoidance::~ObstacleAvoidance() {}
 
-void ObstacleAvoidance::laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& \
-  												sensorData) {
-	/// Read sensor data to get obstacle distances with respect to the robot
+void ObstacleAvoidance::laserSensorCallback(
+  const sensor_msgs::LaserScan::ConstPtr& sensorData) {
+  /// Read sensor data to get obstacle distances with respect to the robot
   for (const float &range : sensorData->ranges) {
     if (range < distanceThreshold) {
       setObstacleDetected(true);
