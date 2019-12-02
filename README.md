@@ -31,7 +31,7 @@ has an obstacle avoidance feature that is used to prevent the robot from collidi
 humans, uninteresting items and walls/shelves.
 
 <p align="center">
-<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/readme_images/initial_proposal_setup.png">
+<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/initial_proposal_setup.png">
 <b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b>
 </p>
 
@@ -54,6 +54,10 @@ to access our Sprint notes document.
 - Access UML diagrams from the *initial* folder located within *UML* sub-directory.
 
 ## API Documentations
+
+- [Gazebo Population Tag](http://gazebosim.org/tutorials?tut=model_population&cat=build_world)
+- [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages)
+- [Template Matching](https://docs.opencv.org/master/de/da9/tutorial_template_matching.html)
 
 ## Dependencies
 
@@ -87,6 +91,10 @@ sudo apt install ros-kinetic-turtlebot-gazebo ros-kinetic-turtlebot-apps ros-kin
 ```
 - Create your ROS workspace by following instructions on the [*create ROS workspace tutortial page*](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
    
+## Known Bugs and Issues
+
+This project is under-development. Currently, we are facing build issues. Sorry for the inconvenience.
+
 ## Build
 
 - ***Ignore this section*** as nothing to be built has been added yet.
@@ -104,8 +112,24 @@ catkin_make
 
 ## Test
 
+Close and terminate everything including rosmaster. In a new terminal, switch to the ROS workspace and build the tests. Type
+
+```
+cd catkin_ws
+source devel/setup.bash
+catkin_make run_tests_supermarket_cleaning_robot
+```
+
 ## Run
+
+Now, we use launch file to run. In a new terminal, type
+
+```
+cd catkin_ws
+source devel/setup.bash
+roslaunch supermarket_cleaning_robot launcher.launch
+```
 
 ## Demo
 
-## Known Bugs
+We will update in the next phase by next week.
