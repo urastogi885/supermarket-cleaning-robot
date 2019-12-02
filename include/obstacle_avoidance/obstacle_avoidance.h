@@ -29,8 +29,6 @@
  * @author Umang Rastogi - Driver
  * @author Naman Gupta - Navigator
  * @brief Library header file to implement obstacle avoidance
- * @detail Uses laser sensor for obstacle avoidance
- *				 Publishes velocities for the robot upon obstacle detection
  */
 
 #ifndef INCLUDE_OBSTACLE_AVOIDANCE_H_
@@ -68,10 +66,12 @@ public:
 
   /**
   * @brief Constructor for obstacle avoidance class
-  * @param none
+  * @param safe distance from an obstacle
+  * @param linear velcity of the bot in x-axis [optional]
+  * @param angular velocity of the bot about z-axis [optional]
   * @return a constructor has no return
   */
-  ObstacleAvoidance(float distanceThreshold, float linVel = 0.2, float angVel = 0.52);
+  ObstacleAvoidance(float distThreshold, float linVel = 1.0, float angVel = 0.52);
 
   /**
   * @brief Destructor for obstacle avoidance class
@@ -82,10 +82,11 @@ public:
 
   /**
   * @brief Callback function for subscriber
-  * @param msg data from LaserScan node
+  * @param messsage data from LaserScan node
   * @return void
   */
-  void laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
+  void laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& \
+  												sensorData);
 
   /**
   * @brief Checks if obstacle is present within safe distance
