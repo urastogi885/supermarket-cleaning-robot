@@ -41,20 +41,12 @@ class ObstacleAvoidance {
 private:
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
-  /// Define a publisher object to publish velocities for the robot
-  ros::Publisher publishVelocities;
   /// Define a subscriber object to data of the laser sensor
   ros::Subscriber subscibeSensor;
   /// Define variable to store if obstacle was detected
   bool obstacleDetected;
-  /// Declare publishing rate
-  float publishingRate;
   /// Initalize minimum safe distance from an obstacle
   float distanceThreshold;
-  /// Initialize linear velocity in x-axis
-  float linearVelocity;
-  /// Initialize angular velocity about z-axis
-  float angularVelocity;
 
 public:
   /**
@@ -67,11 +59,9 @@ public:
   /**
   * @brief Constructor for obstacle avoidance class
   * @param safe distance from an obstacle
-  * @param linear velcity of the bot in x-axis [optional]
-  * @param angular velocity of the bot about z-axis [optional]
   * @return a constructor has no return
   */
-  ObstacleAvoidance(float distThreshold, float linVel = 1.0, float angVel = 0.52);
+  ObstacleAvoidance(float distThreshold);
 
   /**
   * @brief Destructor for obstacle avoidance class
