@@ -29,7 +29,7 @@
  * @author Umang Rastogi - Driver
  * @author Naman Gupta - Navigator
  * @brief Library header file to control motion of the bot
- * @detail Takes input form both, obstacle avoidance and object detection
+ * @detail Takes input from both, obstacle avoidance and object detection
  */
 
 #ifndef INCLUDE_TURTLEBOT_H_
@@ -38,12 +38,21 @@
 /// Add ROS headers
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
-/// Add custom libraries to help control motion of the robot
-#include "../obstacle_avoidance/obstacle_avoidance.h"
-#include "../object_detection/object_detection.h"
 
 class Turtlebot {
 private:
+  /// Define the main access point to communications with the ROS system
+  ros::NodeHandle nh;
+  /// Define a publisher object to publish velocities for the robot
+  ros::Publisher publishVelocities;
+  /// Define twist object for bot velocities
+  geometry_msgs::Twist velocities;
+  /// Initialize linear velocity in x-axis
+  float linearVelocity;
+  /// Initialize angular velocity about z-axis
+  float anguarVelocity;
+  /// Initialize publishing rate
+  const int publishRate = 2;
 
 public:
 	/**
@@ -54,6 +63,14 @@ public:
   Turtlebot();
 
   /**
+  * @brief Constructor for obstacle avoidance class
+  * @param linear velocity in x-axis
+  * @param angular velocity about z-axis
+  * @return a constructor has no return
+  */
+  Turtlebot(float linVelX, float angVelZ);
+
+  /**
   * @brief Destructor for obstacle avoidance class
   * @param none
   * @return a destrcutor has no return
@@ -62,24 +79,24 @@ public:
 
   /**
   * @brief Make the bot move forward
-  * @param none
-  * @return void
+  * @param linear velocity in x-direction
+  * @return linear velocity for the bot
   */
-  void moveForward();
+  float moveForward(float linVelX);
 
   /**
   * @brief Turn the bot
-  * @param none
-  * @return void
+  * @param angular velocity about z-axis
+  * @return angular velocity for the bot
   */
-  void turn();
+  float turn(float angVelZ);
 
   /**
   * @brief Collect the object
   * @param none
   * @return void
   */
-  void collectObject();
+  bool collectObject();
 
   /**
   * @brief Control the motion of the bot
@@ -95,7 +112,7 @@ public:
   * @param none
   * @return void
   */
-  void resetBot();
+  bool resetBot();
 
   /**
   * @brief Check change in the velocites of the bot
