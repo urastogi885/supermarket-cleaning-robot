@@ -1,0 +1,125 @@
+\hypertarget{classObjectDectection}{}\section{Object\+Dectection Class Reference}
+\label{classObjectDectection}\index{Object\+Dectection@{Object\+Dectection}}
+
+
+{\ttfamily \#include $<$object\+\_\+detection.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObjectDectection_ab0aace87e85b603e96a66e94c936fc1b}{Object\+Dectection} ()
+\begin{DoxyCompactList}\small\item\em Constructor for object detection class. \end{DoxyCompactList}\item 
+\hyperlink{classObjectDectection_a97840a69d8c8a6096db6cc8dea0b9e01}{$\sim$\+Object\+Dectection} ()
+\begin{DoxyCompactList}\small\item\em Destructor for object detection class. \end{DoxyCompactList}\item 
+void \hyperlink{classObjectDectection_abaed4737bbd593f1c9e75e56b5ae7db3}{convert\+Image} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&image\+Data)
+\begin{DoxyCompactList}\small\item\em Callback function for image data. \end{DoxyCompactList}\item 
+bool \hyperlink{classObjectDectection_abfb053098fb4ac31367ff97e4eec1f5d}{template\+Matching} (cv\+::\+Mat cv\+Image)
+\begin{DoxyCompactList}\small\item\em Method to implement template matching. \end{DoxyCompactList}\item 
+cv\+::\+Rect \hyperlink{classObjectDectection_a41286e52132960adfd7778893ab5166a}{get\+Object\+Location} ()
+\begin{DoxyCompactList}\small\item\em Method to get location of object in the turtlebot world. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Object\+Dectection@{Object\+Dectection}!Object\+Dectection@{Object\+Dectection}}
+\index{Object\+Dectection@{Object\+Dectection}!Object\+Dectection@{Object\+Dectection}}
+\subsubsection[{\texorpdfstring{Object\+Dectection()}{ObjectDectection()}}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Dectection\+::\+Object\+Dectection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDectection_ab0aace87e85b603e96a66e94c936fc1b}{}\label{classObjectDectection_ab0aace87e85b603e96a66e94c936fc1b}
+
+
+Constructor for object detection class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constructor has no return 
+\end{DoxyReturn}
+\index{Object\+Dectection@{Object\+Dectection}!````~Object\+Dectection@{$\sim$\+Object\+Dectection}}
+\index{````~Object\+Dectection@{$\sim$\+Object\+Dectection}!Object\+Dectection@{Object\+Dectection}}
+\subsubsection[{\texorpdfstring{$\sim$\+Object\+Dectection()}{~ObjectDectection()}}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Dectection\+::$\sim$\+Object\+Dectection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDectection_a97840a69d8c8a6096db6cc8dea0b9e01}{}\label{classObjectDectection_a97840a69d8c8a6096db6cc8dea0b9e01}
+
+
+Destructor for object detection class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a destrcutor has no return 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Object\+Dectection@{Object\+Dectection}!convert\+Image@{convert\+Image}}
+\index{convert\+Image@{convert\+Image}!Object\+Dectection@{Object\+Dectection}}
+\subsubsection[{\texorpdfstring{convert\+Image(const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&image\+Data)}{convertImage(const sensor_msgs::Image::ConstPtr &imageData)}}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Dectection\+::convert\+Image (
+\begin{DoxyParamCaption}
+\item[{const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&}]{image\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDectection_abaed4737bbd593f1c9e75e56b5ae7db3}{}\label{classObjectDectection_abaed4737bbd593f1c9e75e56b5ae7db3}
+
+
+Callback function for image data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & data from camera node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void  Convert R\+OS image message to CV image 
+\end{DoxyReturn}
+\index{Object\+Dectection@{Object\+Dectection}!get\+Object\+Location@{get\+Object\+Location}}
+\index{get\+Object\+Location@{get\+Object\+Location}!Object\+Dectection@{Object\+Dectection}}
+\subsubsection[{\texorpdfstring{get\+Object\+Location()}{getObjectLocation()}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Rect Object\+Dectection\+::get\+Object\+Location (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDectection_a41286e52132960adfd7778893ab5166a}{}\label{classObjectDectection_a41286e52132960adfd7778893ab5166a}
+
+
+Method to get location of object in the turtlebot world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{Object\+Dectection@{Object\+Dectection}!template\+Matching@{template\+Matching}}
+\index{template\+Matching@{template\+Matching}!Object\+Dectection@{Object\+Dectection}}
+\subsubsection[{\texorpdfstring{template\+Matching(cv\+::\+Mat cv\+Image)}{templateMatching(cv::Mat cvImage)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Dectection\+::template\+Matching (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{cv\+Image}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDectection_abfb053098fb4ac31367ff97e4eec1f5d}{}\label{classObjectDectection_abfb053098fb4ac31367ff97e4eec1f5d}
+
+
+Method to implement template matching. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/object\+\_\+detection/\hyperlink{object__detection_8h}{object\+\_\+detection.\+h}\end{DoxyCompactItemize}

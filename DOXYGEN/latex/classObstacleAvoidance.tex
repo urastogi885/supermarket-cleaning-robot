@@ -1,0 +1,178 @@
+\hypertarget{classObstacleAvoidance}{}\section{Obstacle\+Avoidance Class Reference}
+\label{classObstacleAvoidance}\index{Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+
+
+{\ttfamily \#include $<$obstacle\+\_\+avoidance.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObstacleAvoidance_adff25e3149ac860f48af277913c6e51e}{Obstacle\+Avoidance} ()
+\begin{DoxyCompactList}\small\item\em Constructor for obstacle avoidance class. \end{DoxyCompactList}\item 
+\hyperlink{classObstacleAvoidance_acc575828426b0c1f499f0d2de8e8adc9}{Obstacle\+Avoidance} (float dist\+Threshold)
+\begin{DoxyCompactList}\small\item\em Constructor for obstacle avoidance class. \end{DoxyCompactList}\item 
+\hyperlink{classObstacleAvoidance_aead959d605cc5599afde7da5e66b24f7}{$\sim$\+Obstacle\+Avoidance} ()
+\begin{DoxyCompactList}\small\item\em Destructor for obstacle avoidance class. \end{DoxyCompactList}\item 
+void \hyperlink{classObstacleAvoidance_af03480261c682c2b9b4026f377cc9e3f}{laser\+Sensor\+Callback} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&sensor\+Data)
+\begin{DoxyCompactList}\small\item\em Callback function for subscriber. \end{DoxyCompactList}\item 
+bool \hyperlink{classObstacleAvoidance_a10de6174bbf71748bb9467981c6f9ab4}{check\+Obstacle} ()
+\begin{DoxyCompactList}\small\item\em Checks if obstacle is present within safe distance. \end{DoxyCompactList}\item 
+bool \hyperlink{classObstacleAvoidance_a9bc10665f077a2a22c203289e187ebb3}{get\+Obstacle\+Detected} () const 
+\begin{DoxyCompactList}\small\item\em get obstacle detected \end{DoxyCompactList}\item 
+void \hyperlink{classObstacleAvoidance_ab905f3e115e16482e7f8a6b24e0f3cf1}{set\+Obstacle\+Detected} (bool obstacle)
+\begin{DoxyCompactList}\small\item\em set obstacle detected \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{Obstacle\+Avoidance()}{ObstacleAvoidance()}}]{\setlength{\rightskip}{0pt plus 5cm}Obstacle\+Avoidance\+::\+Obstacle\+Avoidance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObstacleAvoidance_adff25e3149ac860f48af277913c6e51e}{}\label{classObstacleAvoidance_adff25e3149ac860f48af277913c6e51e}
+
+
+Constructor for obstacle avoidance class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constructor has no return 
+\end{DoxyReturn}
+Initialize the current value of velocities in m/s and rad/s
+
+Initialize obstacle detected value with false
+
+Initialize safe distance from an obstacle in meters
+
+Subscribe for data from the laser sensor on the scan topic \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{Obstacle\+Avoidance(float dist\+Threshold)}{ObstacleAvoidance(float distThreshold)}}]{\setlength{\rightskip}{0pt plus 5cm}Obstacle\+Avoidance\+::\+Obstacle\+Avoidance (
+\begin{DoxyParamCaption}
+\item[{float}]{dist\+Threshold}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classObstacleAvoidance_acc575828426b0c1f499f0d2de8e8adc9}{}\label{classObstacleAvoidance_acc575828426b0c1f499f0d2de8e8adc9}
+
+
+Constructor for obstacle avoidance class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em safe} & distance from an obstacle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constructor has no return 
+\end{DoxyReturn}
+Initialize obstacle detected value with false
+
+Initialize safe distance from an obstacle in meters
+
+Subscribe for data from the laser sensor on the scan topic \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!````~Obstacle\+Avoidance@{$\sim$\+Obstacle\+Avoidance}}
+\index{````~Obstacle\+Avoidance@{$\sim$\+Obstacle\+Avoidance}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{$\sim$\+Obstacle\+Avoidance()}{~ObstacleAvoidance()}}]{\setlength{\rightskip}{0pt plus 5cm}Obstacle\+Avoidance\+::$\sim$\+Obstacle\+Avoidance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObstacleAvoidance_aead959d605cc5599afde7da5e66b24f7}{}\label{classObstacleAvoidance_aead959d605cc5599afde7da5e66b24f7}
+
+
+Destructor for obstacle avoidance class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a destrcutor has no return 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!check\+Obstacle@{check\+Obstacle}}
+\index{check\+Obstacle@{check\+Obstacle}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{check\+Obstacle()}{checkObstacle()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Obstacle\+Avoidance\+::check\+Obstacle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObstacleAvoidance_a10de6174bbf71748bb9467981c6f9ab4}{}\label{classObstacleAvoidance_a10de6174bbf71748bb9467981c6f9ab4}
+
+
+Checks if obstacle is present within safe distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean obstacle found or not 
+\end{DoxyReturn}
+Check if obstacle is ahead \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!get\+Obstacle\+Detected@{get\+Obstacle\+Detected}}
+\index{get\+Obstacle\+Detected@{get\+Obstacle\+Detected}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{get\+Obstacle\+Detected() const }{getObstacleDetected() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Obstacle\+Avoidance\+::get\+Obstacle\+Detected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObstacleAvoidance_a9bc10665f077a2a22c203289e187ebb3}{}\label{classObstacleAvoidance_a9bc10665f077a2a22c203289e187ebb3}
+
+
+get obstacle detected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean obstacle detected or not 
+\end{DoxyReturn}
+\index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!laser\+Sensor\+Callback@{laser\+Sensor\+Callback}}
+\index{laser\+Sensor\+Callback@{laser\+Sensor\+Callback}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{laser\+Sensor\+Callback(const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&sensor\+Data)}{laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr &sensorData)}}]{\setlength{\rightskip}{0pt plus 5cm}void Obstacle\+Avoidance\+::laser\+Sensor\+Callback (
+\begin{DoxyParamCaption}
+\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{sensor\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{classObstacleAvoidance_af03480261c682c2b9b4026f377cc9e3f}{}\label{classObstacleAvoidance_af03480261c682c2b9b4026f377cc9e3f}
+
+
+Callback function for subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em messsage} & data from Laser\+Scan node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Read sensor data to get obstacle distances with respect to the robot \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!set\+Obstacle\+Detected@{set\+Obstacle\+Detected}}
+\index{set\+Obstacle\+Detected@{set\+Obstacle\+Detected}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
+\subsubsection[{\texorpdfstring{set\+Obstacle\+Detected(bool obstacle)}{setObstacleDetected(bool obstacle)}}]{\setlength{\rightskip}{0pt plus 5cm}void Obstacle\+Avoidance\+::set\+Obstacle\+Detected (
+\begin{DoxyParamCaption}
+\item[{bool}]{obstacle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObstacleAvoidance_ab905f3e115e16482e7f8a6b24e0f3cf1}{}\label{classObstacleAvoidance_ab905f3e115e16482e7f8a6b24e0f3cf1}
+
+
+set obstacle detected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacle} & detected status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/obstacle\+\_\+avoidance/\hyperlink{obstacle__avoidance_8h}{obstacle\+\_\+avoidance.\+h}\item 
+src/\hyperlink{obstacle__avoidance_8cpp}{obstacle\+\_\+avoidance.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,231 @@
+\hypertarget{classTurtlebot}{}\section{Turtlebot Class Reference}
+\label{classTurtlebot}\index{Turtlebot@{Turtlebot}}
+
+
+Add R\+OS headers.  
+
+
+
+
+{\ttfamily \#include $<$turtlebot.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTurtlebot_a683061fc512bfb8d2a35134e783767ff}{Turtlebot} ()
+\begin{DoxyCompactList}\small\item\em Constructor for obstacle avoidance class. \end{DoxyCompactList}\item 
+\hyperlink{classTurtlebot_a5c5d2e07560cf7dd661fa5c16b56f486}{Turtlebot} (float lin\+VelX, float ang\+VelZ)
+\begin{DoxyCompactList}\small\item\em Constructor for obstacle avoidance class. \end{DoxyCompactList}\item 
+\hyperlink{classTurtlebot_a86b905efdcfab4dc1d4c9f7687902f94}{$\sim$\+Turtlebot} ()
+\begin{DoxyCompactList}\small\item\em Destructor for obstacle avoidance class. \end{DoxyCompactList}\item 
+float \hyperlink{classTurtlebot_ab55e08a3b52c24ef094f591b8945a0e9}{move\+Forward} (float lin\+VelX)
+\begin{DoxyCompactList}\small\item\em Make the bot move forward. \end{DoxyCompactList}\item 
+float \hyperlink{classTurtlebot_a793fbcacdfb213d377d3d12e38957a88}{turn} (float ang\+VelZ)
+\begin{DoxyCompactList}\small\item\em Turn the bot. \end{DoxyCompactList}\item 
+bool \hyperlink{classTurtlebot_a7aa654d1ae90e2e380c3d46d2fd17a71}{collect\+Object} ()
+\begin{DoxyCompactList}\small\item\em Collect the object. \end{DoxyCompactList}\item 
+void \hyperlink{classTurtlebot_a59b96da462933830798a7617afa62c0a}{move\+Bot} ()
+\begin{DoxyCompactList}\small\item\em Control the motion of the bot. \end{DoxyCompactList}\item 
+bool \hyperlink{classTurtlebot_a23205bca59a5a9705ab572402de5daf3}{reset\+Bot} ()
+\begin{DoxyCompactList}\small\item\em Reset the velocities of the bot. \end{DoxyCompactList}\item 
+bool \hyperlink{classTurtlebot_aef73460db9fa303eef002e7d54df4f05}{check\+Velocity\+Changed} ()
+\begin{DoxyCompactList}\small\item\em Check change in the velocites of the bot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Add R\+OS headers. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Turtlebot@{Turtlebot}!Turtlebot@{Turtlebot}}
+\index{Turtlebot@{Turtlebot}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{Turtlebot()}{Turtlebot()}}]{\setlength{\rightskip}{0pt plus 5cm}Turtlebot\+::\+Turtlebot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a683061fc512bfb8d2a35134e783767ff}{}\label{classTurtlebot_a683061fc512bfb8d2a35134e783767ff}
+
+
+Constructor for obstacle avoidance class. 
+
+Add R\+OS headers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constructor has no return
+\end{DoxyReturn}
+Add custom libraries to help control motion of the robot Initialize the current value of velocities in m/s and rad/s
+
+Define the main access point to communications with the R\+OS system
+
+Publish the velocities to the robot on the navigation topic \index{Turtlebot@{Turtlebot}!Turtlebot@{Turtlebot}}
+\index{Turtlebot@{Turtlebot}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{Turtlebot(float lin\+Vel\+X, float ang\+Vel\+Z)}{Turtlebot(float linVelX, float angVelZ)}}]{\setlength{\rightskip}{0pt plus 5cm}Turtlebot\+::\+Turtlebot (
+\begin{DoxyParamCaption}
+\item[{float}]{lin\+VelX, }
+\item[{float}]{ang\+VelZ}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a5c5d2e07560cf7dd661fa5c16b56f486}{}\label{classTurtlebot_a5c5d2e07560cf7dd661fa5c16b56f486}
+
+
+Constructor for obstacle avoidance class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linear} & velocity in x-\/axis \\
+\hline
+{\em angular} & velocity about z-\/axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constructor has no return 
+\end{DoxyReturn}
+Initialize the current value of velocities in m/s and rad/s
+
+Define the main access point to communications with the R\+OS system
+
+Publish the velocities to the robot on the navigation topic \index{Turtlebot@{Turtlebot}!````~Turtlebot@{$\sim$\+Turtlebot}}
+\index{````~Turtlebot@{$\sim$\+Turtlebot}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{$\sim$\+Turtlebot()}{~Turtlebot()}}]{\setlength{\rightskip}{0pt plus 5cm}Turtlebot\+::$\sim$\+Turtlebot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a86b905efdcfab4dc1d4c9f7687902f94}{}\label{classTurtlebot_a86b905efdcfab4dc1d4c9f7687902f94}
+
+
+Destructor for obstacle avoidance class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a destrcutor has no return 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Turtlebot@{Turtlebot}!check\+Velocity\+Changed@{check\+Velocity\+Changed}}
+\index{check\+Velocity\+Changed@{check\+Velocity\+Changed}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{check\+Velocity\+Changed()}{checkVelocityChanged()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Turtlebot\+::check\+Velocity\+Changed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_aef73460db9fa303eef002e7d54df4f05}{}\label{classTurtlebot_aef73460db9fa303eef002e7d54df4f05}
+
+
+Check change in the velocites of the bot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean velocity changed or not 
+\end{DoxyReturn}
+\index{Turtlebot@{Turtlebot}!collect\+Object@{collect\+Object}}
+\index{collect\+Object@{collect\+Object}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{collect\+Object()}{collectObject()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Turtlebot\+::collect\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a7aa654d1ae90e2e380c3d46d2fd17a71}{}\label{classTurtlebot_a7aa654d1ae90e2e380c3d46d2fd17a71}
+
+
+Collect the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{Turtlebot@{Turtlebot}!move\+Bot@{move\+Bot}}
+\index{move\+Bot@{move\+Bot}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{move\+Bot()}{moveBot()}}]{\setlength{\rightskip}{0pt plus 5cm}void Turtlebot\+::move\+Bot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a59b96da462933830798a7617afa62c0a}{}\label{classTurtlebot_a59b96da462933830798a7617afa62c0a}
+
+
+Control the motion of the bot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void  Use obstacle avoidance and go-\/to-\/goal strategies to move towards the object to be collected 
+\end{DoxyReturn}
+\index{Turtlebot@{Turtlebot}!move\+Forward@{move\+Forward}}
+\index{move\+Forward@{move\+Forward}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{move\+Forward(float lin\+Vel\+X)}{moveForward(float linVelX)}}]{\setlength{\rightskip}{0pt plus 5cm}float Turtlebot\+::move\+Forward (
+\begin{DoxyParamCaption}
+\item[{float}]{lin\+VelX}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_ab55e08a3b52c24ef094f591b8945a0e9}{}\label{classTurtlebot_ab55e08a3b52c24ef094f591b8945a0e9}
+
+
+Make the bot move forward. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linear} & velocity in x-\/direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+linear velocity for the bot 
+\end{DoxyReturn}
+\index{Turtlebot@{Turtlebot}!reset\+Bot@{reset\+Bot}}
+\index{reset\+Bot@{reset\+Bot}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{reset\+Bot()}{resetBot()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Turtlebot\+::reset\+Bot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a23205bca59a5a9705ab572402de5daf3}{}\label{classTurtlebot_a23205bca59a5a9705ab572402de5daf3}
+
+
+Reset the velocities of the bot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{Turtlebot@{Turtlebot}!turn@{turn}}
+\index{turn@{turn}!Turtlebot@{Turtlebot}}
+\subsubsection[{\texorpdfstring{turn(float ang\+Vel\+Z)}{turn(float angVelZ)}}]{\setlength{\rightskip}{0pt plus 5cm}float Turtlebot\+::turn (
+\begin{DoxyParamCaption}
+\item[{float}]{ang\+VelZ}
+\end{DoxyParamCaption}
+)}\hypertarget{classTurtlebot_a793fbcacdfb213d377d3d12e38957a88}{}\label{classTurtlebot_a793fbcacdfb213d377d3d12e38957a88}
+
+
+Turn the bot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angular} & velocity about z-\/axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+angular velocity for the bot 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/turtlebot/\hyperlink{turtlebot_8h}{turtlebot.\+h}\item 
+src/\hyperlink{turtlebot_8cpp}{turtlebot.\+cpp}\end{DoxyCompactItemize}
