@@ -29,8 +29,6 @@
  * @author Umang Rastogi - Driver
  * @author Naman Gupta - Navigator
  * @brief Library header file to implement obstacle avoidance
- * @detail Uses laser sensor for obstacle avoidance
- *				 Publishes velocities for the robot upon obstacle detection
  */
 
 #ifndef INCLUDE_OBSTACLE_AVOIDANCE_H_
@@ -43,20 +41,12 @@ class ObstacleAvoidance {
 private:
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
-  /// Define a publisher object to publish velocities for the robot
-  ros::Publisher publishVelocities;
   /// Define a subscriber object to data of the laser sensor
   ros::Subscriber subscibeSensor;
   /// Define variable to store if obstacle was detected
   bool obstacleDetected;
-  /// Declare publishing rate
-  float publishingRate;
   /// Initalize minimum safe distance from an obstacle
   float distanceThreshold;
-  /// Initialize linear velocity in x-axis
-  float linearVelocity;
-  /// Initialize angular velocity about z-axis
-  float angularVelocity;
 
 public:
   /**
@@ -68,10 +58,10 @@ public:
 
   /**
   * @brief Constructor for obstacle avoidance class
-  * @param none
+  * @param safe distance from an obstacle
   * @return a constructor has no return
   */
-  ObstacleAvoidance(float distanceThreshold, float linVel = 0.2, float angVel = 0.52);
+  ObstacleAvoidance(float distThreshold);
 
   /**
   * @brief Destructor for obstacle avoidance class
@@ -82,10 +72,11 @@ public:
 
   /**
   * @brief Callback function for subscriber
-  * @param msg data from LaserScan node
+  * @param messsage data from LaserScan node
   * @return void
   */
-  void laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
+  void laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& \
+  												sensorData);
 
   /**
   * @brief Checks if obstacle is present within safe distance
