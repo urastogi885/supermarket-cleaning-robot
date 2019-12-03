@@ -1,0 +1,104 @@
+\href{https://travis-ci.org/urastogi885/Supermarket-Cleaning-Robot}{\tt } \href{https://coveralls.io/github/urastogi885/Supermarket-Cleaning-Robot?branch=master}{\tt } \subsection*{\href{https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/LICENSE}{\tt } }
+
+\subsection*{Overview}
+
+According to a study done in Morrisville, North Carolina, the Walmart Supercenter located in the town receives about 10,000 people per day. Unquestionably, the actual foot traffic depends on a variety of factors, but we cannot disregard that supermarkets are one of the busiest places in a town. The more the number of people, the more likely it is for the store to become dirty. It always begets frustration among workers to maintain the store at its most pristine level. Our supermarket cleaning robot can remove the stress of cleanliness by performing the tasks of an employee.
+
+Currently, most of the robots are only capable of executing a single task. It turns out to be expensive for a store owner to buy a robot that can perform a single task. We propose to develop a robot that can perform various maintenance tasks. The robot will be able to maintain cleanliness as well as make supermarkets autonomous. The robot will able to clean aisles, stack up empty rows, and collect fallen items.
+
+For prototyping, we are focusing on only one task that is identifying and collecting the items using the robot. The robot will roam in a supermarket like environment in Gazebo and identify the type of items that it needs to collect. It identifies the item using a camera, mounted on its base, and moves towards the fallen item. Here, we are considering objects such as food, soft drinks cans and it is assumed that the robot will already know the type of item that it needs to pick. As the robot reaches the location of the item and touches it, the item will vanish depicting that the item is collected using a suction cup. The robot will traverse randomly in the supermarket and keep on collecting a can. We are focusing on the detection of cans using the Open\+CV to improve the processing of the detection feature. In addition to this, the robot has an obstacle avoidance feature that is used to prevent the robot from colliding from obstacles such as humans, uninteresting items and walls/shelves.
+
+ {\bfseries Figure 1 -\/ Robot approaching towards the cans lying on the ground to collect them} 
+
+\subsection*{Team Members}
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/urastogi885}{\tt Umang Rastogi} -\/ Pursuing masters in Robotics at University of Maryland $\vert$ B.\+Tech in Electronics \& Communication Engineering
+\item \href{https://github.com/namangupta98}{\tt Naman Gupta} -\/ Grad Student at University of Maryland, pursuing M.\+Eng. in Robotics.
+\end{DoxyItemize}
+
+\subsection*{A\+IP and Sprint Documents}
+
+
+\begin{DoxyItemize}
+\item Click on this \href{https://docs.google.com/spreadsheets/d/1k6e7rM7TTvE5w2fQ_wuSDY_giNWaVuCHeImB6D53lT4/edit?usp=sharing}{\tt {\itshape link}} to access our A\+IP Google Sheet.
+\item Click on this \href{https://docs.google.com/document/d/1iQZUstgoCCvtSvlcv1_xpxGW6ntUbkOpcgMuvrSP_ms/edit?usp=sharing}{\tt {\itshape link}} to access our Sprint notes document.
+\end{DoxyItemize}
+
+\subsection*{Accessing the U\+ML Diagrams}
+
+
+\begin{DoxyItemize}
+\item Open the {\itshape U\+ML} directory of the project.
+\item Access U\+ML diagrams from the {\itshape initial} folder located within {\itshape U\+ML} sub-\/directory.
+\end{DoxyItemize}
+
+\subsection*{A\+PI Documentations}
+
+\subsection*{Dependencies}
+
+
+\begin{DoxyItemize}
+\item Ubuntu 16.\+04
+\item R\+OS Kinetic
+\item Gazebo
+\item \hyperlink{classTurtlebot}{Turtlebot} Packages
+\end{DoxyItemize}
+
+\subsection*{Install Dependences}
+
+
+\begin{DoxyItemize}
+\item This project was developed using R\+OS Kinetic.
+\item It is highly recommended that R\+OS Kinetic is properly installed on your system before the use of this project.
+\item Follow the instructions on the \href{http://wiki.ros.org/kinetic/Installation/Ubuntu}{\tt {\itshape R\+OS kinetic install tutorial page}} to install $\ast$$\ast$$\ast$\+Full-\/\+Desktop Version$\ast$$\ast$$\ast$ of R\+OS Kinetic.
+\item The full-\/version would help you install {\itshape Gazebo} as well. If you have R\+OS Kinetic pre-\/installed on your machine, use the following \href{http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install}{\tt {\itshape link}} to just install {\itshape Gazebo} on your machine.
+\item Ensure successful installation by running {\itshape Gazebo} via your terminal window\+: 
+\begin{DoxyCode}
+1 gazebo
+\end{DoxyCode}
+
+\item An empty window of {\itshape Gazebo Simulator} should be launched.
+\item Make sure that turtlebot packages have been installed on your machine using the following commands\+: 
+\begin{DoxyCode}
+1 roslaunch turtlebot\_gazebo turtlebot\_world.launch
+\end{DoxyCode}
+
+\item A window of {\itshape Gazebo Simulator} with various items and a turtlebot should be launched.
+\item If an error pops up upo launching the turtlebot world, then install the necessary turtlebot packages\+: 
+\begin{DoxyCode}
+1 sudo apt install ros-kinetic-turtlebot-gazebo ros-kinetic-turtlebot-apps
+       ros-kinetic-turtlebot-rviz-launchers
+\end{DoxyCode}
+
+\item Create your R\+OS workspace by following instructions on the \href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{\tt {\itshape create R\+OS workspace tutortial page}}.
+\end{DoxyItemize}
+
+\subsection*{Build}
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast$$\ast$\+Ignore this section$\ast$$\ast$$\ast$ as nothing to be built has been added yet.
+\item Even if you run the following, it will not impact your existing workspace.
+\item Switch to your {\itshape src} sub-\/directory of your R\+OS workspace to clone this repository. 
+\begin{DoxyCode}
+1 <ROS Workspace>/src
+\end{DoxyCode}
+
+\item Run the following commands to clone and build this project\+: 
+\begin{DoxyCode}
+1 git clone --recursive https://github.com/urastogi885/obstacle\_avoidance\_simulation
+2 cd ..
+3 catkin\_make
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\subsection*{Test}
+
+\subsection*{Run}
+
+\subsection*{Demo}
+
+\subsection*{Known Bugs}
