@@ -11,8 +11,8 @@ find_package(
 	catkin REQUIRED COMPONENTS 
 	roscpp 
 	sensor_msgs
-  	geometry_msgs
-  	move_base_msgs
+  geometry_msgs
+  move_base_msgs
 	cv_bridge
 	image_transport
 )
@@ -28,10 +28,10 @@ include_directories(
 )
 
 ## Add executables
-add_executable(supermarket_cleaning_robot src/turtlebot.cpp src/obstacle_avoidance.cpp src/main.cpp)
+add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/main.cpp)
 
 ## Add target link libraries
-## target_link_libraries( ${catkin_LIBRARIES} ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(object_collection ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
 ## Enable catkin test and add files for the same
 if(CATKIN_ENABLE_TESTING)
