@@ -52,7 +52,7 @@ TEST(TurtlebotTest, velocityChangedTest) {
  */
 TEST(TurtlebotTest, moveForwardTest) {
     Turtlebot turtle;
-    EXPECT_EQ(2.0, turtle.moveForward(2.0))
+    EXPECT_EQ(2.0, turtle.moveForward(2.0));
 }
 
 /**

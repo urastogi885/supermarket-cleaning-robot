@@ -40,16 +40,13 @@
 
 ObstacleAvoidance::ObstacleAvoidance() {
   ROS_INFO_STREAM("Setting up obstacle avoidance for the robot...");
-  /// Initialize the current value of velocities in m/s and rad/s
-  linearVelocity = 1.0;
-  anguarVelocity = 0.52;
   /// Initialize obstacle detected value with false
   obstacleDetected = false;
   /// Initialize safe distance from an obstacle in meters
   distanceThreshold = 0.2;
   /// Subscribe for data from the laser sensor on the scan topic
   subscibeSensor = nh.subscribe<sensor_msgs::LaserScan>("/scan", 500, \
-              &ObstacleAvoidance::sensorCallback, this);
+              &ObstacleAvoidance::laserSensorCallback, this);
   ROS_INFO_STREAM("Set up complete");
 }
 
@@ -61,7 +58,7 @@ ObstacleAvoidance::ObstacleAvoidance(float distThreshold) {
   distanceThreshold = distThreshold;
   /// Subscribe for data from the laser sensor on the scan topic
   subscibeSensor = nh.subscribe<sensor_msgs::LaserScan>("/scan", 500, \
-              &ObstacleAvoidance::sensorCallback, this);
+              &ObstacleAvoidance::laserSensorCallback, this);
   ROS_INFO_STREAM("Set up complete");
 }
 

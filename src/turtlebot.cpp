@@ -45,7 +45,7 @@
 Turtlebot::Turtlebot() {
   ROS_INFO_STREAM("Initiliazing the robot...");
   ObstacleAvoidance obstacleAvoidance;
-  ObjectDetection objectDetection;
+  // ObjectDetection objectDetection;
   /// Initialize the current value of velocities in m/s and rad/s
   linearVelocity = 1.0;
   anguarVelocity = 0.52;
@@ -60,7 +60,7 @@ Turtlebot::Turtlebot() {
 Turtlebot::Turtlebot(float linVelX, float angVelZ) {
   ROS_INFO_STREAM("Initiliazing the robot...");
   ObstacleAvoidance obstacleAvoidance;
-  ObjectDetection objectDetection;
+  // ObjectDetection objectDetection;
   /// Initialize the current value of velocities in m/s and rad/s
   linearVelocity = linVelX;
   anguarVelocity = angVelZ;
@@ -93,7 +93,7 @@ float Turtlebot::turn(float angVelZ) {
 }
 
 bool Turtlebot::collectObject() {
-  return false
+  return false;
 }
 
 void Turtlebot::moveBot() {
