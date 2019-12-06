@@ -38,13 +38,15 @@ if(CATKIN_ENABLE_TESTING)
   set(CMAKE_BUILD_TYPE Debug)
   find_package(rostest REQUIRED)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+
   add_rostest_gtest(
    test_project_x_robot
-   test/main.cpp 
-   test/obstacle_avoidance_test.cpp 
-   test/turtlebot_test.cpp 
-   src/turtlebot.cpp 
-   src/obstacle_avoidance.cpp)
+   test/project_x_test.launch
+   test/main.cpp
+   test/obstacle_avoidance_test.cpp
+   test/turtlebot_test.cpp
+   src/obstacle_avoidance.cpp
+   src/turtlebot.cpp)
 
   target_link_libraries(
    test_project_x_robot 
@@ -53,5 +55,6 @@ if(CATKIN_ENABLE_TESTING)
 
   add_dependencies(
   	test_project_x_robot
+    object_collection
     ${catkin_EXPORTED_TARGETS})
 endif()
