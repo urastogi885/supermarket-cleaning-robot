@@ -37,7 +37,7 @@
  * @copyright  GNU
  * @brief      Implementation of algorithm
  */
-
+#include "ros/ros.h"
 #include "object_detection/object_detection.h"
 #include "obstacle_avoidance/obstacle_avoidance.h"
 #include "turtlebot/turtlebot.h"
@@ -49,5 +49,8 @@
  * @return     none
  */
 int main(int argc, char* argv[]) {
-  return -1;
+  ros::init(argc, argv, "object_collection");
+  ObstacleAvoidance obstacleAvoidance;
+  Turtlebot turtlebot;
+  return 0;
 }
