@@ -49,11 +49,8 @@ Turtlebot::Turtlebot() {
   /// Initialize the current value of velocities in m/s and rad/s
   linearVelocity = 1.0;
   anguarVelocity = 0.52;
-  /// Define the main access point to communications with the ROS system
-  ros::NodeHandle nh;
   /// Publish the velocities to the robot on the navigation topic
-  publishVelocities = nh.advertise<geometry_msgs::Twist>\
-               ("/cmd_vel_mux/input/navi", 1000);
+  publishVelocities = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO_STREAM("Set up complete");
 }
 
@@ -64,11 +61,8 @@ Turtlebot::Turtlebot(float linVelX, float angVelZ) {
   /// Initialize the current value of velocities in m/s and rad/s
   linearVelocity = linVelX;
   anguarVelocity = angVelZ;
-  /// Define the main access point to communications with the ROS system
-  ros::NodeHandle nh;
   /// Publish the velocities to the robot on the navigation topic
-  publishVelocities = nh.advertise<geometry_msgs::Twist>\
-               ("/cmd_vel_mux/input/navi", 1000);
+  publishVelocities = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO_STREAM("Set up complete");
 }
 
