@@ -68,7 +68,7 @@ void ObstacleAvoidance::laserSensorCallback(
   const sensor_msgs::LaserScan::ConstPtr& sensorData) {
   /// Read sensor data to get obstacle distances with respect to the robot
   for (const float &range : sensorData->ranges) {
-    if (range < distanceThreshold) {
+    if (range <= distanceThreshold) {
       setObstacleDetected(true);
       return;
     }
