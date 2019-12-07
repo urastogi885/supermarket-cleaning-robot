@@ -43,7 +43,7 @@
  */
 TEST(TurtlebotTest, velocityChangedTest) {
     Turtlebot turtle;
-    EXPECT_FALSE(turtle.checkVelocityChanged());
+    EXPECT_TRUE(turtle.checkVelocityChanged());
 }
 
 /**
@@ -52,7 +52,8 @@ TEST(TurtlebotTest, velocityChangedTest) {
  */
 TEST(TurtlebotTest, moveForwardTest) {
     Turtlebot turtle;
-    EXPECT_EQ(2.0, turtle.moveForward(2.0));
+    float linVel = 2.0;
+    EXPECT_EQ(linVel, turtle.moveForward(linVel));
 }
 
 /**
@@ -61,5 +62,14 @@ TEST(TurtlebotTest, moveForwardTest) {
  */
 TEST(TurtlebotTest, turnTest) {
     Turtlebot turtle;
-    EXPECT_EQ(0.52, turtle.turn(0.52));
+    float angVel = 0.52;
+    EXPECT_EQ(angVel, turtle.turn(angVel));
+}
+
+/**
+ * @brief	Test for resetting the bot
+ */
+TEST(TurtlebotTest, resetTest) {
+    Turtlebot turtle;
+    EXPECT_TRUE(turtle.resetBot());
 }
