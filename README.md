@@ -106,6 +106,7 @@ This project is under-development. Currently, we are facing build issues. Sorry 
 - Run the following commands to clone and build this project:
 ```shell script
 git clone --recursive https://github.com/urastogi885/obstacle_avoidance_simulation
+git checkout Phase3
 cd ..
 catkin_make
 ```
@@ -117,7 +118,7 @@ Close and terminate everything including rosmaster. In a new terminal, switch to
 ```
 cd catkin_ws
 source devel/setup.bash
-catkin_make run_tests_supermarket_cleaning_robot
+catkin_make run_tests_test_project_x_robot
 ```
 
 ## Run
@@ -127,7 +128,7 @@ Now, we use launch file to run. In a new terminal, type
 ```
 cd catkin_ws
 source devel/setup.bash
-roslaunch supermarket_cleaning_robot launcher.launch
+roslaunch supermarket_cleaning_robot object_collection.launch
 ```
 
 ## Doxygen
