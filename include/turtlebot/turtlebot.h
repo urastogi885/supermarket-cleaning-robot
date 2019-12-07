@@ -40,9 +40,12 @@
 /// Add ROS headers
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
+#include "object_detection/object_detection.h"
+#include "obstacle_avoidance/obstacle_avoidance.h"
 
 class Turtlebot {
  private:
+  // ObjectDetection objectDetection;
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Define a publisher object to publish velocities for the robot
@@ -52,9 +55,11 @@ class Turtlebot {
   /// Initialize linear velocity in x-axis
   float linearVelocity;
   /// Initialize angular velocity about z-axis
-  float anguarVelocity;
+  float angularVelocity;
+  /// Define variables to store previous velocities
+  float prevLinearVelocity, prevAngularVelocity;
   /// Initialize publishing rate
-  const int publishRate = 2;
+  const int publishRate = 500;
 
  public:
 	/**
@@ -107,7 +112,7 @@ class Turtlebot {
   * @detail Use obstacle avoidance and go-to-goal strategies
   *					to move towards the object to be collected
   */
-  void moveBot();
+  void moveBot(ObstacleAvoidance& obstacleAvoidance);
 
   /**
   * @brief Reset the velocities of the bot
