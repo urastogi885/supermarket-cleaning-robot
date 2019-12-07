@@ -44,11 +44,12 @@
 
 Turtlebot::Turtlebot() {
   ROS_INFO_STREAM("Initiliazing the robot...");
-  ObstacleAvoidance obstacleAvoidance;
-  // ObjectDetection objectDetection;
   /// Initialize the current value of velocities in m/s and rad/s
-  linearVelocity = 1.0;
-  anguarVelocity = 0.52;
+  linearVelocity = 0.2;
+  angularVelocity = 0.52;
+  /// Initialize previous with the current value of velocities
+  prevLinearVelocity = linearVelocity;
+  prevAngularVelocity = angularVelocity;
   /// Publish the velocities to the robot on the navigation topic
   publishVelocities = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO_STREAM("Set up complete");
@@ -56,11 +57,12 @@ Turtlebot::Turtlebot() {
 
 Turtlebot::Turtlebot(float linVelX, float angVelZ) {
   ROS_INFO_STREAM("Initiliazing the robot...");
-  ObstacleAvoidance obstacleAvoidance;
-  // ObjectDetection objectDetection;
   /// Initialize the current value of velocities in m/s and rad/s
   linearVelocity = linVelX;
-  anguarVelocity = angVelZ;
+  angularVelocity = angVelZ;
+  /// Initialize previous with the current value of velocities
+  prevLinearVelocity = linearVelocity;
+  prevAngularVelocity = angularVelocity;
   /// Publish the velocities to the robot on the navigation topic
   publishVelocities = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO_STREAM("Set up complete");
@@ -90,14 +92,59 @@ bool Turtlebot::collectObject() {
   return false;
 }
 
-void Turtlebot::moveBot() {
-  return;
+void Turtlebot::moveBot(ObstacleAvoidance& obstacleAvoidance) {
+  // Set the publishing rate
+  ros::Rate loop_rate(publishRate);
+  while (ros::ok()) {
+    if (obstacleAvoidance.checkObstacle()) {
+      ROS_DEBUG_STREAM("Inside obstacle detected");
+      /// Start turning the robot to avoid obstacles
+      turn(angularVelocity);
+      /// Check if velocities have changed
+      checkVelocityChanged();
+    } else {
+        /// Start moving the robot once obstacle is avoided
+        moveForward(linearVelocity);
+        /// Check if velocities have changed
+        checkVelocityChanged();
+    }
+
+    /// Publish the velocities
+    publishVelocities.publish(velocities);
+    /// Handle callback
+    ros::spinOnce();
+    /// Make the system sleep to maintain loop rate
+    loop_rate.sleep();
+  }
 }
 
 bool Turtlebot::resetBot() {
+  ROS_INFO_STREAM("Resetting the robot config...");
+  /// Reset linear velocities of the both robot
+  velocities.linear.x = 0.0;
+  velocities.linear.y = 0.0;
+  velocities.linear.z = 0.0;
+  /// Reset angular velocities of the both robot
+  velocities.angular.x = 0.0;
+  velocities.angular.y = 0.0;
+  velocities.angular.z = 0.0;
+  /// Publish the reset velocities
+  publishVelocities.publish(velocities);
+  ROS_INFO_STREAM("Reset complete");
   return true;
 }
 
 bool Turtlebot::checkVelocityChanged() {
+  /// Linear and angular change simultaneously
+  /// Check if both the velocities have changed
+  if (velocities.linear.x != prevLinearVelocity and \
+      velocities.angular.z != prevAngularVelocity) {
+    ROS_DEBUG_STREAM("Velocity of the robot changed");
+    /// Update previous velocities
+    velocities.linear.x = prevLinearVelocity;
+    velocities.angular.z = prevAngularVelocity;
+    return true;
+  }
+
   return false;
 }
