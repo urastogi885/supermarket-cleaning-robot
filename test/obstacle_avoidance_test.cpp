@@ -51,5 +51,13 @@ TEST(ObstacleAvoidanceTest, obstacleNotDetected) {
 TEST(ObstacleAvoidanceTest, obstacleDetected) {
     ObstacleAvoidance obstacle;
     obstacle.setObstacleDetected(true);
-    EXPECT_EQ(obstacle.getObstacleDetected(), true);
+    EXPECT_TRUE(obstacle.getObstacleDetected());
+}
+
+/**
+ * @brief	Test to check obstacle
+ */
+TEST(ObstacleAvoidanceTest, checkObstacle) {
+    ObstacleAvoidance obstacle;
+    EXPECT_FALSE(obstacle.checkObstacle());
 }
