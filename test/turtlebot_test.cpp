@@ -51,8 +51,10 @@ TEST(TurtlebotTest, velocityChangedTest) {
  * @detail	Test to check linear velocity provided to method
  */
 TEST(TurtlebotTest, moveForwardTest) {
-    Turtlebot turtle;
-    float linVel = 2.0;
+	/// Define angular and linear velocities for the robot
+	float linVel = 2.0;
+	float angVel = 0.52;
+    Turtlebot turtle(linVel, angVel);
     EXPECT_EQ(linVel, turtle.moveForward(linVel));
 }
 
@@ -61,8 +63,10 @@ TEST(TurtlebotTest, moveForwardTest) {
  * @detail	Test to check angular velocity provided to method
  */
 TEST(TurtlebotTest, turnTest) {
-    Turtlebot turtle;
-    float angVel = 0.52;
+	/// Define angular and linear velocities for the robot
+	float linVel = 2.0;
+	float angVel = 0.52;
+    Turtlebot turtle(linVel, angVel);
     EXPECT_EQ(angVel, turtle.turn(angVel));
 }
 
