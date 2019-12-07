@@ -38,9 +38,9 @@
  * @brief      Implementation of algorithm
  */
 #include "ros/ros.h"
+#include "turtlebot/turtlebot.h"
 #include "object_detection/object_detection.h"
 #include "obstacle_avoidance/obstacle_avoidance.h"
-#include "turtlebot/turtlebot.h"
 
 /**
  * @brief      main function
@@ -51,6 +51,8 @@
 int main(int argc, char* argv[]) {
   ros::init(argc, argv, "object_collection");
   ObstacleAvoidance obstacleAvoidance;
+  /// ObjectDetection objectDetection;
   Turtlebot turtlebot;
+  turtlebot.moveBot(obstacleAvoidance);
   return 0;
 }
