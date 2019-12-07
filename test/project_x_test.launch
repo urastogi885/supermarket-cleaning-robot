@@ -1,3 +1,5 @@
 <launch>
-  <test test-name="test_project_x_robot" pkg="project_x_robot" type="test_project_x_robot" />
+  <test pkg="supermarket_cleaning_robot"
+  		type="test_project_x_robot"
+  		test-name="test_project_x_robot"/>
 </launch>
