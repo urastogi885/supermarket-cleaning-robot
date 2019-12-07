@@ -43,7 +43,7 @@ ObstacleAvoidance::ObstacleAvoidance() {
   /// Initialize obstacle detected value with false
   obstacleDetected = false;
   /// Initialize safe distance from an obstacle in meters
-  distanceThreshold = 0.2;
+  distanceThreshold = 0.8;
   /// Subscribe for data from the laser sensor on the scan topic
   subscibeSensor = nh.subscribe<sensor_msgs::LaserScan>("/scan", 500, \
               &ObstacleAvoidance::laserSensorCallback, this);
@@ -69,6 +69,7 @@ void ObstacleAvoidance::laserSensorCallback(
   /// Read sensor data to get obstacle distances with respect to the robot
   for (const float &range : sensorData->ranges) {
     if (range <= distanceThreshold) {
+      ROS_INFO_STREAM("Distance: " << range);
       setObstacleDetected(true);
       return;
     }
