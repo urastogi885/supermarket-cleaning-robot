@@ -45,7 +45,7 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
-class ObjectDectection {
+class ObjectDetection {
  private:
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
@@ -59,6 +59,18 @@ class ObjectDectection {
   cv::Mat convertedImage;
   /// Define object coordinates
   cv::Rect objectLocation;
+  /// Container to store image
+  cv::Mat image;
+  /// Container to store template
+  cv::Mat templ;
+  /// Define object for Image Transport
+  image_transport::ImageTransport it;
+  /// Defining subscriber object
+  image_transport::Subscriber image_sub;
+  /// Defining publisher object
+  image_transport::Publisher image_pub;
+  /// Source array
+  cv::Mat result;
 
  public:
 	/**
@@ -66,14 +78,22 @@ class ObjectDectection {
   * @param none
   * @return a constructor has no return
   */
-  ObjectDectection();
+  ObjectDetection();
+
+  /**
+   * @brief Method to get image file and template file
+   * @param none
+   * @return coverted image of type cv::Mat
+   * @details
+   */ 
+  cv::Mat readImage();
 
   /**
   * @brief Destructor for object detection class
   * @param none
-  * @return a destrcutor has no return
+  * @return none
   */
-  ~ObjectDectection();
+  ~ObjectDetection();
 
   /**
   * @brief Callback function for image data
@@ -84,17 +104,17 @@ class ObjectDectection {
   void convertImage(const sensor_msgs::Image::ConstPtr& imageData);
 
   /**
-  * @brief Method to implement template matching
-  * @param none
-  * @return void
-  */
-  bool templateMatching(cv::Mat cvImage);
+   * @brief Method to implement template matching
+   * @param coverted image of type cv::Mat
+   * @return image of type bool
+   */
+  void templateMatching();
 
   /**
-  * @brief Method to get location of object in the turtlebot world
-  * @param none
-  * @return void
-  */
+   * @brief Method to get location of object in the turtlebot world
+   * @param none
+   * @return location of object of type cv::Rect
+   */
   cv::Rect getObjectLocation();
 };
 
