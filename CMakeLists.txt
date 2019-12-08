@@ -28,7 +28,7 @@ include_directories(
 )
 
 ## Add executables
-add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/main.cpp)
+add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/object_detection.cpp src/main.cpp)
 
 ## Add target link libraries
 target_link_libraries(object_collection ${catkin_LIBRARIES} ${OpenCV_LIBS})
