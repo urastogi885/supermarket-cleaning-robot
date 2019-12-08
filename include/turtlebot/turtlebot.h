@@ -112,7 +112,7 @@ class Turtlebot {
   * @detail Use obstacle avoidance and go-to-goal strategies
   *					to move towards the object to be collected
   */
-  void moveBot(ObstacleAvoidance& obstacleAvoidance);
+  void moveBot(ObstacleAvoidance& obstacleAvoidance, ObjectDetection& objectDetection);
 
   /**
   * @brief Reset the velocities of the bot

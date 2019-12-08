@@ -51,8 +51,8 @@
 int main(int argc, char* argv[]) {
   ros::init(argc, argv, "object_collection");
   ObstacleAvoidance obstacleAvoidance;
-  /// ObjectDetection objectDetection;
+  ObjectDetection objectDetection;
   Turtlebot turtlebot;
-  turtlebot.moveBot(obstacleAvoidance);
+  turtlebot.moveBot(obstacleAvoidance, objectDetection);
   return 0;
 }

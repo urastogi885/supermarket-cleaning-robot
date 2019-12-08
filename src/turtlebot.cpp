@@ -92,10 +92,11 @@ bool Turtlebot::collectObject() {
   return false;
 }
 
-void Turtlebot::moveBot(ObstacleAvoidance& obstacleAvoidance) {
+void Turtlebot::moveBot(ObstacleAvoidance& obstacleAvoidance, ObjectDetection& objectDetection) {
   // Set the publishing rate
   ros::Rate loop_rate(publishRate);
   while (ros::ok()) {
+    objectDetection.templateMatching();
     if (obstacleAvoidance.checkObstacle()) {
       ROS_DEBUG_STREAM("Inside obstacle detected");
       /// Start turning the robot to avoid obstacles
