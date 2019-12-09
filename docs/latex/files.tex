@@ -3,9 +3,13 @@ Here is a list of all files with brief descriptions\+:\begin{DoxyCompactList}
 \item\contentsline{section}{include/object\+\_\+detection/\hyperlink{object__detection_8h}{object\+\_\+detection.\+h} \\*Library header file to implement object detection  Deploys template matching to detect object in the bot\textquotesingle{}s world }{\pageref{object__detection_8h}}{}
 \item\contentsline{section}{include/obstacle\+\_\+avoidance/\hyperlink{obstacle__avoidance_8h}{obstacle\+\_\+avoidance.\+h} \\*Library header file to implement obstacle avoidance }{\pageref{obstacle__avoidance_8h}}{}
 \item\contentsline{section}{include/turtlebot/\hyperlink{turtlebot_8h}{turtlebot.\+h} \\*Library header file to control motion of the bot  Takes input from both, obstacle avoidance and object detection }{\pageref{turtlebot_8h}}{}
-\item\contentsline{section}{src/\hyperlink{obstacle__avoidance_8cpp}{obstacle\+\_\+avoidance.\+cpp} }{\pageref{obstacle__avoidance_8cpp}}{}
-\item\contentsline{section}{src/\hyperlink{turtlebot_8cpp}{turtlebot.\+cpp} \\*Source file to implement turtlebot class  Controls the motion of the bot using obstacle avoidance and go-\/to-\/goal strategies }{\pageref{turtlebot_8cpp}}{}
+\item\contentsline{section}{src/\hyperlink{detector_8cpp}{detector.\+cpp} \\*Detector node file to implement object detection algorithm  Implements object detection algorithm using H\+SV color detection }{\pageref{detector_8cpp}}{}
+\item\contentsline{section}{src/\hyperlink{navigator_8cpp}{navigator.\+cpp} }{\pageref{navigator_8cpp}}{}
+\item\contentsline{section}{src/\hyperlink{object__detection_8cpp}{object\+\_\+detection.\+cpp} \\*File to implement \hyperlink{classObjectDetection}{Object\+Detection} class  Implements object detection using H\+SV method which detects color of the can in a certain range and creates a bounding box over it }{\pageref{object__detection_8cpp}}{}
+\item\contentsline{section}{src/\hyperlink{obstacle__avoidance_8cpp}{obstacle\+\_\+avoidance.\+cpp} \\*Source file to implement obstacle avoidance class  Uses laser sensor for obstacle avoidance publishes velocities for the robot upon obstacle detection }{\pageref{obstacle__avoidance_8cpp}}{}
+\item\contentsline{section}{src/\hyperlink{turtlebot_8cpp}{turtlebot.\+cpp} \\*Navigator node to implement obstacle avoidance and move bot algorithm }{\pageref{turtlebot_8cpp}}{}
 \item\contentsline{section}{test/\hyperlink{main_8cpp}{main.\+cpp} \\*Test implementation of class test }{\pageref{main_8cpp}}{}
+\item\contentsline{section}{test/\hyperlink{object__detection__test_8cpp}{object\+\_\+detection\+\_\+test.\+cpp} }{\pageref{object__detection__test_8cpp}}{}
 \item\contentsline{section}{test/\hyperlink{obstacle__avoidance__test_8cpp}{obstacle\+\_\+avoidance\+\_\+test.\+cpp} \\*Class test implementation of class \hyperlink{classObstacleAvoidance}{Obstacle\+Avoidance} }{\pageref{obstacle__avoidance__test_8cpp}}{}
 \item\contentsline{section}{test/\hyperlink{turtlebot__test_8cpp}{turtlebot\+\_\+test.\+cpp} }{\pageref{turtlebot__test_8cpp}}{}
 \end{DoxyCompactList}

@@ -36,6 +36,13 @@ For prototyping, we are focusing on only one task that is identifying and collec
 
 \subsection*{A\+PI Documentations}
 
+
+\begin{DoxyItemize}
+\item \href{http://gazebosim.org/tutorials?tut=model_population&cat=build_world}{\tt Gazebo Population Tag}
+\item \href{http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages}{\tt cv\+\_\+bridge}
+\item \href{https://docs.opencv.org/master/de/da9/tutorial_template_matching.html}{\tt Template Matching}
+\end{DoxyItemize}
+
 \subsection*{Dependencies}
 
 
@@ -75,6 +82,10 @@ For prototyping, we are focusing on only one task that is identifying and collec
 \item Create your R\+OS workspace by following instructions on the \href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{\tt {\itshape create R\+OS workspace tutortial page}}.
 \end{DoxyItemize}
 
+\subsection*{Known Bugs and Issues}
+
+This project is under-\/development. Currently, we are facing build issues. Sorry for the inconvenience.
+
 \subsection*{Build}
 
 
@@ -89,16 +100,61 @@ For prototyping, we are focusing on only one task that is identifying and collec
 \item Run the following commands to clone and build this project\+: 
 \begin{DoxyCode}
 1 git clone --recursive https://github.com/urastogi885/obstacle\_avoidance\_simulation
-2 cd ..
-3 catkin\_make
+2 git checkout Phase3
+3 cd ..
+4 catkin\_make
 \end{DoxyCode}
 
 \end{DoxyItemize}
 
 \subsection*{Test}
 
+Close and terminate everything including rosmaster. In a new terminal, switch to the R\+OS workspace and build the tests. Type
+
+
+\begin{DoxyCode}
+1 cd catkin\_ws
+2 source devel/setup.bash
+3 catkin\_make run\_tests\_test\_project\_x\_robot
+\end{DoxyCode}
+
+
 \subsection*{Run}
+
+Now, we use launch file to run. In a new terminal, type
+
+
+\begin{DoxyCode}
+1 cd catkin\_ws
+2 source devel/setup.bash
+3 roslaunch supermarket\_cleaning\_robot object\_collection.launch
+\end{DoxyCode}
+
+
+\subsection*{Doxygen}
+
+To install doxygen run the following command\+:
+
+
+\begin{DoxyCode}
+1 sudo apt-get install doxygen
+\end{DoxyCode}
+ Now from the cloned directory run\+:
+
+
+\begin{DoxyCode}
+1 doxygen doxygen
+\end{DoxyCode}
+
+
+Generated doxygen files are in html format and you can find them in ./docs folder. With the following command
+
+
+\begin{DoxyCode}
+1 firefox docs/html/index.html
+\end{DoxyCode}
+
 
 \subsection*{Demo}
 
-\subsection*{Known Bugs}
+We will update in the next phase by next week. 

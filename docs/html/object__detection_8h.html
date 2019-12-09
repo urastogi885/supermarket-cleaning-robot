@@ -94,13 +94,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Library header file to implement object detection  Deploys template matching to detect object in the bot's world.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;ros/ros.h&quot;</code><br />
-<code>#include &quot;sensor_msgs/Image.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;ros/ros.h&quot;</code><br />
 <code>#include &quot;cv_bridge/cv_bridge.h&quot;</code><br />
-<code>#include &quot;sensor_msgs/image_encodings.h&quot;</code><br />
-<code>#include &quot;image_transport/image_transport.h&quot;</code><br />
+<code>#include &quot;opencv2/opencv.hpp&quot;</code><br />
 <code>#include &quot;opencv2/highgui/highgui.hpp&quot;</code><br />
-<code>#include &quot;opencv2/imgproc/imgproc.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for object_detection.h:</div>
 <div class="dyncontent">
@@ -113,7 +111,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="object__detection_8h__dep__incl.png" border="0" usemap="#include_2object__detection_2object__detection_8hdep" alt=""/></div>
 <map name="include_2object__detection_2object__detection_8hdep" id="include_2object__detection_2object__detection_8hdep">
-<area shape="rect" id="node2" href="turtlebot_8cpp.html" title="Source file to implement turtlebot class &#160;Controls the motion of the bot using obstacle avoidance and..." alt="" coords="29,95,145,121"/>
+<area shape="rect" id="node2" href="turtlebot_8h.html" title="Library header file to control motion of the bot &#160;Takes input from both, obstacle avoidance and objec..." alt="" coords="147,102,323,129"/>
+<area shape="rect" id="node4" href="turtlebot_8cpp.html" title="Navigator node to implement obstacle avoidance and move bot algorithm. " alt="" coords="326,184,442,211"/>
+<area shape="rect" id="node6" href="detector_8cpp.html" title="Detector node file to implement object detection algorithm &#160;Implements object detection algorithm usi..." alt="" coords="414,102,530,129"/>
+<area shape="rect" id="node7" href="object__detection_8cpp.html" title="File to implement ObjectDetection class &#160;Implements object detection using HSV method which detects c..." alt="" coords="554,102,718,129"/>
+<area shape="rect" id="node8" href="object__detection__test_8cpp.html" title="test/object_detection\l_test.cpp" alt="" coords="742,95,885,136"/>
+<area shape="rect" id="node3" href="navigator_8cpp.html" title="src/navigator.cpp" alt="" coords="5,184,128,211"/>
+<area shape="rect" id="node5" href="turtlebot__test_8cpp.html" title="test/turtlebot_test.cpp" alt="" coords="152,184,301,211"/>
 </map>
 </div>
 </div>
@@ -121,13 +125,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectDectection.html">ObjectDectection</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectDetection.html">ObjectDetection</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Library header file to implement object detection  Deploys template matching to detect object in the bot's world. </p>
 <p>BSD 3-Clause License</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2019, Umang Rastogi Naman Gupta All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2019, Umang Rastogi, Naman Gupta</dd></dl>
+<p>All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 <dl class="section author"><dt>Author</dt><dd>Umang Rastogi - Driver </dd>
 <dd>
