@@ -50,6 +50,16 @@ TEST(ObstacleAvoidanceTest, obstacleNotDetected) {
  */
 TEST(ObstacleAvoidanceTest, obstacleDetected) {
     ObstacleAvoidance obstacle;
-    EXPECT_EQ(obstacle.getObstacleDetected(),
-        obstacle.setObstacleDetected(true));
+    obstacle.setObstacleDetected(true);
+    EXPECT_TRUE(obstacle.getObstacleDetected());
+}
+
+/**
+ * @brief	Test to check obstacle
+ */
+TEST(ObstacleAvoidanceTest, checkObstacle) {
+    /// Define distance threshold for obstacles
+    float distThresh = 0.5;
+    ObstacleAvoidance obstacle(distThresh);
+    EXPECT_FALSE(obstacle.checkObstacle());
 }

@@ -40,6 +40,8 @@
 /// Add ROS headers
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
+#include "object_detection/object_detection.h"
+#include "obstacle_avoidance/obstacle_avoidance.h"
 
 class Turtlebot {
  private:
@@ -52,73 +54,69 @@ class Turtlebot {
   /// Initialize linear velocity in x-axis
   float linearVelocity;
   /// Initialize angular velocity about z-axis
-  float anguarVelocity;
+  float angularVelocity;
+  /// Define variables to store previous velocities
+  float prevLinearVelocity, prevAngularVelocity;
   /// Initialize publishing rate
-  const int publishRate = 2;
+  const int publishRate = 500;
+  /// Obstacle detection and template matching variables
 
  public:
 	/**
-  * @brief Constructor for obstacle avoidance class
-  * @param none
-  * @return a constructor has no return
-  */
+   * @brief   Constructor for obstacle avoidance class
+   * @param   none
+   * @return  none
+   */
   Turtlebot();
 
   /**
-  * @brief Constructor for obstacle avoidance class
-  * @param linear velocity in x-axis
-  * @param angular velocity about z-axis
-  * @return a constructor has no return
-  */
+   * @brief  Constructor for obstacle avoidance class
+   * @param  Linear velocity in x-axis
+   * @param  Angular velocity about z-axis
+   * @return none
+   */
   Turtlebot(float linVelX, float angVelZ);
 
   /**
-  * @brief Destructor for obstacle avoidance class
-  * @param none
-  * @return a destrcutor has no return
-  */
+   * @brief  Destructor for obstacle avoidance class
+   * @param  none
+   * @return none
+   */
   ~Turtlebot();
 
   /**
-  * @brief Make the bot move forward
-  * @param linear velocity in x-direction
-  * @return linear velocity for the bot
-  */
+   * @brief   Make the bot move forward
+   * @param   Linear velocity in x-direction
+   * @return  Linear velocity for the bot
+   */
   float moveForward(float linVelX);
 
   /**
-  * @brief Turn the bot
-  * @param angular velocity about z-axis
-  * @return angular velocity for the bot
-  */
+   * @brief   Turn the bot
+   * @param   Angular velocity about z-axis
+   * @return  Angular velocity for the bot
+   */
   float turn(float angVelZ);
 
   /**
-  * @brief Collect the object
-  * @param none
-  * @return void
-  */
-  bool collectObject();
+   * @brief   Control the motion of the bot
+   * @param   Reference to Obstacle Avoidance class
+   * @return  none
+   * @detail  Use obstacle avoidance and go-to-goal strategies
+   *				  to move towards the object to be collected
+   */
+  void moveBot(ObstacleAvoidance& obstacleAvoidance);
 
   /**
-  * @brief Control the motion of the bot
-  * @param none
-  * @return void
-  * @detail Use obstacle avoidance and go-to-goal strategies
-  *					to move towards the object to be collected
-  */
-  void moveBot();
-
-  /**
-  * @brief Reset the velocities of the bot
-  * @param none
-  * @return void
-  */
+   * @brief   Reset the velocities of the bot
+   * @param   none
+   * @return  status of type bool
+   */
   bool resetBot();
 
   /**
-  * @brief Check change in the velocites of the bot
-  * @param none
+  * @brief  Check change in the velocites of the bot
+  * @param  none
   * @return boolean velocity changed or not
   */
   bool checkVelocityChanged();

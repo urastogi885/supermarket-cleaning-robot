@@ -5,7 +5,7 @@ project(supermarket_cleaning_robot)
 add_compile_options(-std=c++11)
 
 ## Find catkin and any catkin packages
-find_package(OpenCV 2 REQUIRED)
+find_package(OpenCV REQUIRED)
 
 find_package(
 	catkin REQUIRED COMPONENTS 
@@ -28,31 +28,39 @@ include_directories(
 )
 
 ## Add executables
-add_executable(supermarket_cleaning_robot src/turtlebot.cpp src/obstacle_avoidance.cpp)
+add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/navigator.cpp)
+
+add_executable(detector src/object_detection.cpp src/detector.cpp)
 
 ## Add target link libraries
-## target_link_libraries(supermarket_cleaning_robot ${catkin_LIBRARIES}${OpenCV_INCLUDE_DIRS})
+target_link_libraries(object_collection ${catkin_LIBRARIES} ${OpenCV_LIBS})
+target_link_libraries(detector ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
 ## Enable catkin test and add files for the same
 if(CATKIN_ENABLE_TESTING)
   set(CMAKE_BUILD_TYPE Debug)
   find_package(rostest REQUIRED)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+
   add_rostest_gtest(
    test_project_x_robot
-   test/main.cpp 
-   test/obstacle_avoidance_test.cpp 
-   test/turtlebot_test.cpp 
-   src/turtlebot.cpp 
-   src/obstacle_avoidance.cpp)
+   test/project_x_test.launch
+   test/main.cpp
+   test/obstacle_avoidance_test.cpp
+   test/turtlebot_test.cpp
+   test/object_detection_test.cpp
+   src/obstacle_avoidance.cpp
+   src/turtlebot.cpp
+   src/object_detection.cpp)
 
   target_link_libraries(
-   test_supermarket_cleaning_robot 
+   test_project_x_robot 
    ${catkin_LIBRARIES}
    ${OpenCV_LIBS})
 
   add_dependencies(
-    supermarket_cleaning_robot
-    test_project_x_robot
+  	test_project_x_robot
+    object_collection
+    detector
     ${catkin_EXPORTED_TARGETS})
 endif()

@@ -1,8 +1,22 @@
+Done processing ./src/detector.cpp
+./src/turtlebot.cpp:141:  Use operator && instead of and  [readability/alt_tokens] [2]
 Done processing ./src/turtlebot.cpp
+Done processing ./src/object_detection.cpp
 Done processing ./src/obstacle_avoidance.cpp
+Done processing ./src/navigator.cpp
 Done processing ./test/turtlebot_test.cpp
+./test/object_detection_test.cpp:78:  Tab found; better to use spaces  [whitespace/tab] [1]
+./test/object_detection_test.cpp:79:  Tab found; better to use spaces  [whitespace/tab] [1]
+./test/object_detection_test.cpp:80:  Tab found; better to use spaces  [whitespace/tab] [1]
+./test/object_detection_test.cpp:81:  Tab found; better to use spaces  [whitespace/tab] [1]
+./test/object_detection_test.cpp:82:  Tab found; better to use spaces  [whitespace/tab] [1]
+./test/object_detection_test.cpp:94:  Tab found; better to use spaces  [whitespace/tab] [1]
+./test/object_detection_test.cpp:95:  Tab found; better to use spaces  [whitespace/tab] [1]
+Done processing ./test/object_detection_test.cpp
 Done processing ./test/main.cpp
 Done processing ./test/obstacle_avoidance_test.cpp
 Done processing ./include/object_detection/object_detection.h
+./include/turtlebot/turtlebot.h:121:  Is this a non-const reference? If so, make const or use a pointer: ObstacleAvoidance& obstacleAvoidance  [runtime/references] [2]
 Done processing ./include/turtlebot/turtlebot.h
 Done processing ./include/obstacle_avoidance/obstacle_avoidance.h
+Total errors found: 9

@@ -1,7 +1,7 @@
 /**
  * BSD 3-Clause License
  *
- * @copyright (c) 2019, Umang Rastogi Naman Gupta
+ * @copyright (c) 2019, Umang Rastogi, Naman Gupta
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -24,13 +24,15 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @file obstacle_avoidance.h
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Library header file to implement obstacle avoidance
- * @detail Uses laser sensor for obstacle avoidance
- * @detail Publishes velocities for the robot upon obstacle detection
+ */
+
+/**
+ * @file    obstacle_avoidance.cpp
+ * @author  Umang Rastogi - Driver
+ * @author  Naman Gupta   - Navigator
+ * @brief   Source file to implement obstacle avoidance class
+ * @detail  Uses laser sensor for obstacle avoidance 
+ *          publishes velocities for the robot upon obstacle detection
  */
 
 #include "ros/ros.h"
@@ -40,16 +42,13 @@
 
 ObstacleAvoidance::ObstacleAvoidance() {
   ROS_INFO_STREAM("Setting up obstacle avoidance for the robot...");
-  /// Initialize the current value of velocities in m/s and rad/s
-  linearVelocity = 1.0;
-  anguarVelocity = 0.52;
   /// Initialize obstacle detected value with false
   obstacleDetected = false;
   /// Initialize safe distance from an obstacle in meters
-  distanceThreshold = 0.2;
+  distanceThreshold = 0.8;
   /// Subscribe for data from the laser sensor on the scan topic
   subscibeSensor = nh.subscribe<sensor_msgs::LaserScan>("/scan", 500, \
-              &ObstacleAvoidance::sensorCallback, this);
+              &ObstacleAvoidance::laserSensorCallback, this);
   ROS_INFO_STREAM("Set up complete");
 }
 
@@ -61,22 +60,20 @@ ObstacleAvoidance::ObstacleAvoidance(float distThreshold) {
   distanceThreshold = distThreshold;
   /// Subscribe for data from the laser sensor on the scan topic
   subscibeSensor = nh.subscribe<sensor_msgs::LaserScan>("/scan", 500, \
-              &ObstacleAvoidance::sensorCallback, this);
+              &ObstacleAvoidance::laserSensorCallback, this);
   ROS_INFO_STREAM("Set up complete");
 }
-
-ObstacleAvoidance::~ObstacleAvoidance() {}
 
 void ObstacleAvoidance::laserSensorCallback(
   const sensor_msgs::LaserScan::ConstPtr& sensorData) {
   /// Read sensor data to get obstacle distances with respect to the robot
   for (const float &range : sensorData->ranges) {
-    if (range < distanceThreshold) {
+    if (range <= distanceThreshold) {
+      ROS_INFO_STREAM("Distance: " << range);
       setObstacleDetected(true);
       return;
     }
   }
-
   setObstacleDetected(false);
 }
 
@@ -86,6 +83,7 @@ bool ObstacleAvoidance::checkObstacle() {
     ROS_WARN_STREAM("Obstacle ahead!");
     return true;
   }
-
   return false;
 }
+
+ObstacleAvoidance::~ObstacleAvoidance() {}

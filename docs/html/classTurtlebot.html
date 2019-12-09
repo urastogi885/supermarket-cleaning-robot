@@ -98,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a683061fc512bfb8d2a35134e783767ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTurtlebot.html#a683061fc512bfb8d2a35134e783767ff">Turtlebot</a> ()</td></tr>
-<tr class="memdesc:a683061fc512bfb8d2a35134e783767ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for obstacle avoidance class.  <a href="#a683061fc512bfb8d2a35134e783767ff">More...</a><br /></td></tr>
+<tr class="memdesc:a683061fc512bfb8d2a35134e783767ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obstacle detection and template matching variables.  <a href="#a683061fc512bfb8d2a35134e783767ff">More...</a><br /></td></tr>
 <tr class="separator:a683061fc512bfb8d2a35134e783767ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c5d2e07560cf7dd661fa5c16b56f486"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTurtlebot.html#a5c5d2e07560cf7dd661fa5c16b56f486">Turtlebot</a> (float linVelX, float angVelZ)</td></tr>
 <tr class="memdesc:a5c5d2e07560cf7dd661fa5c16b56f486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for obstacle avoidance class.  <a href="#a5c5d2e07560cf7dd661fa5c16b56f486">More...</a><br /></td></tr>
@@ -115,9 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7aa654d1ae90e2e380c3d46d2fd17a71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTurtlebot.html#a7aa654d1ae90e2e380c3d46d2fd17a71">collectObject</a> ()</td></tr>
 <tr class="memdesc:a7aa654d1ae90e2e380c3d46d2fd17a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect the object.  <a href="#a7aa654d1ae90e2e380c3d46d2fd17a71">More...</a><br /></td></tr>
 <tr class="separator:a7aa654d1ae90e2e380c3d46d2fd17a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59b96da462933830798a7617afa62c0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTurtlebot.html#a59b96da462933830798a7617afa62c0a">moveBot</a> ()</td></tr>
-<tr class="memdesc:a59b96da462933830798a7617afa62c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control the motion of the bot.  <a href="#a59b96da462933830798a7617afa62c0a">More...</a><br /></td></tr>
-<tr class="separator:a59b96da462933830798a7617afa62c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66ffc31cade2642187b9708eb28e234e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTurtlebot.html#a66ffc31cade2642187b9708eb28e234e">moveBot</a> (<a class="el" href="classObstacleAvoidance.html">ObstacleAvoidance</a> &amp;obstacleAvoidance)</td></tr>
+<tr class="memdesc:a66ffc31cade2642187b9708eb28e234e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control the motion of the bot.  <a href="#a66ffc31cade2642187b9708eb28e234e">More...</a><br /></td></tr>
+<tr class="separator:a66ffc31cade2642187b9708eb28e234e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23205bca59a5a9705ab572402de5daf3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTurtlebot.html#a23205bca59a5a9705ab572402de5daf3">resetBot</a> ()</td></tr>
 <tr class="memdesc:a23205bca59a5a9705ab572402de5daf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the velocities of the bot.  <a href="#a23205bca59a5a9705ab572402de5daf3">More...</a><br /></td></tr>
 <tr class="separator:a23205bca59a5a9705ab572402de5daf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,18 +141,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for obstacle avoidance class. </p>
+<p>Obstacle detection and template matching variables. </p>
 <p>Add ROS headers.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor for obstacle avoidance class </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a constructor has no return</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none</dd></dl>
 <p>Add custom libraries to help control motion of the robot </p>
 <p>Initialize the current value of velocities in m/s and rad/s</p>
-<p>Define the main access point to communications with the ROS system</p>
+<p>Initialize previous with the current value of velocities</p>
 <p>Publish the velocities to the robot on the navigation topic </p>
 
 </div>
@@ -184,14 +184,14 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for obstacle avoidance class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">linear</td><td>velocity in x-axis </td></tr>
-    <tr><td class="paramname">angular</td><td>velocity about z-axis </td></tr>
+    <tr><td class="paramname">Linear</td><td>velocity in x-axis </td></tr>
+    <tr><td class="paramname">Angular</td><td>velocity about z-axis </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a constructor has no return </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 <p>Initialize the current value of velocities in m/s and rad/s</p>
-<p>Define the main access point to communications with the ROS system</p>
+<p>Initialize previous with the current value of velocities</p>
 <p>Publish the velocities to the robot on the navigation topic </p>
 
 </div>
@@ -216,7 +216,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a destrcutor has no return </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>
@@ -242,6 +242,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean velocity changed or not </dd></dl>
+<p>Check if both the velocities have changed</p>
+<p>Update previous velocities </p>
 
 </div>
 </div>
@@ -269,14 +271,15 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a59b96da462933830798a7617afa62c0a"></a>
+<a class="anchor" id="a66ffc31cade2642187b9708eb28e234e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Turtlebot::moveBot </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classObstacleAvoidance.html">ObstacleAvoidance</a> &amp;&#160;</td>
+          <td class="paramname"><em>obstacleAvoidance</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -285,11 +288,19 @@ Public Member Functions</h2></td></tr>
 <p>Control the motion of the bot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
+    <tr><td class="paramname">Reference</td><td>to Obstacle Avoidance class </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void  Use obstacle avoidance and go-to-goal strategies to move towards the object to be collected </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none  Use obstacle avoidance and go-to-goal strategies to move towards the object to be collected </dd></dl>
+<p>Set the publishing rate</p>
+<p>Start turning the robot to avoid obstacles</p>
+<p>Check if velocities have changed</p>
+<p>Start moving the robot once obstacle is avoided</p>
+<p>Check if velocities have changed</p>
+<p>Publish the velocities</p>
+<p>Handle callback</p>
+<p>Make the system sleep to maintain loop rate </p>
 
 </div>
 </div>
@@ -310,11 +321,11 @@ Public Member Functions</h2></td></tr>
 <p>Make the bot move forward. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">linear</td><td>velocity in x-direction </td></tr>
+    <tr><td class="paramname">Linear</td><td>velocity in x-direction </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>linear velocity for the bot </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Linear velocity for the bot </dd></dl>
 
 </div>
 </div>
@@ -338,7 +349,10 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>status of type bool </dd></dl>
+<p>Reset linear velocities of the both robot</p>
+<p>Reset angular velocities of the both robot</p>
+<p>Publish the reset velocities </p>
 
 </div>
 </div>
@@ -359,11 +373,11 @@ Public Member Functions</h2></td></tr>
 <p>Turn the bot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">angular</td><td>velocity about z-axis </td></tr>
+    <tr><td class="paramname">Angular</td><td>velocity about z-axis </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>angular velocity for the bot </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Angular velocity for the bot </dd></dl>
 
 </div>
 </div>

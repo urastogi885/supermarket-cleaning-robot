@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objectdectection',['ObjectDectection',['../classObjectDectection.html',1,'']]],
+  ['objectdetection',['ObjectDetection',['../classObjectDetection.html',1,'']]],
   ['obstacleavoidance',['ObstacleAvoidance',['../classObstacleAvoidance.html',1,'']]]
 ];

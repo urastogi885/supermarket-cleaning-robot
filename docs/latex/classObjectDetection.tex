@@ -1,0 +1,243 @@
+\hypertarget{classObjectDetection}{}\section{Object\+Detection Class Reference}
+\label{classObjectDetection}\index{Object\+Detection@{Object\+Detection}}
+
+
+{\ttfamily \#include $<$object\+\_\+detection.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classObjectDetection_a6ccb25952ecc45811451c5cb623e23ee}{Object\+Detection} ()
+\begin{DoxyCompactList}\small\item\em Constructor for object detection class. \end{DoxyCompactList}\item 
+\hyperlink{classObjectDetection_ad5d9d344ab55095927725733590f0da5}{$\sim$\+Object\+Detection} ()
+\begin{DoxyCompactList}\small\item\em Destructor for object detection class. \end{DoxyCompactList}\item 
+void \hyperlink{classObjectDetection_abb6ea33423e081c37bd38e55f1347f52}{convert\+Image} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&image\+Data)
+\begin{DoxyCompactList}\small\item\em Callback function for image data. \end{DoxyCompactList}\item 
+bool \hyperlink{classObjectDetection_a63d13b70232d3d076a6c543c03f9c9ff}{detect\+Object} (cv\+::\+Mat image)
+\begin{DoxyCompactList}\small\item\em Method to detect object using hsv. \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{classObjectDetection_a0f559ec8747dca4882aa3fe8f21e0fb8}{apply\+Gauss\+Blur} (cv\+::\+Mat cvt\+Image)
+\begin{DoxyCompactList}\small\item\em Method to convert gaussian filter on the image. \end{DoxyCompactList}\item 
+cv\+::\+Rect \hyperlink{classObjectDetection_a897f179535427f66bc9f849b1daff904}{get\+Object\+Boundary} () const 
+\begin{DoxyCompactList}\small\item\em Get boundary of the object in the image. \end{DoxyCompactList}\item 
+void \hyperlink{classObjectDetection_af3c1adc86fa3950f0325e5c6de7c9a2e}{set\+Object\+Boundary} (cv\+::\+Rect bounding\+Box)
+\begin{DoxyCompactList}\small\item\em Set object boundary. \end{DoxyCompactList}\item 
+bool \hyperlink{classObjectDetection_ac1e795be46de92c3e7c2f050d805d601}{get\+Object\+Detected} () const 
+\begin{DoxyCompactList}\small\item\em Get object detected. \end{DoxyCompactList}\item 
+void \hyperlink{classObjectDetection_a1f0c0d87bb3fdc9082c8f4c450bbf1fb}{set\+Object\+Detected} (bool object)
+\begin{DoxyCompactList}\small\item\em Set object detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+cv\+::\+Mat \hyperlink{classObjectDetection_ab3a61dd408dd36da96f7398f14a1a054}{converted\+Image}
+\begin{DoxyCompactList}\small\item\em Container to store converted image from cv\+\_\+bridge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Object\+Detection@{Object\+Detection}!Object\+Detection@{Object\+Detection}}
+\index{Object\+Detection@{Object\+Detection}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{Object\+Detection()}{ObjectDetection()}}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Detection\+::\+Object\+Detection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDetection_a6ccb25952ecc45811451c5cb623e23ee}{}\label{classObjectDetection_a6ccb25952ecc45811451c5cb623e23ee}
+
+
+Constructor for object detection class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Subscribe to turtlebot camera to get feed from the camera \index{Object\+Detection@{Object\+Detection}!````~Object\+Detection@{$\sim$\+Object\+Detection}}
+\index{````~Object\+Detection@{$\sim$\+Object\+Detection}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{$\sim$\+Object\+Detection()}{~ObjectDetection()}}]{\setlength{\rightskip}{0pt plus 5cm}Object\+Detection\+::$\sim$\+Object\+Detection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDetection_ad5d9d344ab55095927725733590f0da5}{}\label{classObjectDetection_ad5d9d344ab55095927725733590f0da5}
+
+
+Destructor for object detection class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Object\+Detection@{Object\+Detection}!apply\+Gauss\+Blur@{apply\+Gauss\+Blur}}
+\index{apply\+Gauss\+Blur@{apply\+Gauss\+Blur}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{apply\+Gauss\+Blur(cv\+::\+Mat cvt\+Image)}{applyGaussBlur(cv::Mat cvtImage)}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Object\+Detection\+::apply\+Gauss\+Blur (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{cvt\+Image}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDetection_a0f559ec8747dca4882aa3fe8f21e0fb8}{}\label{classObjectDetection_a0f559ec8747dca4882aa3fe8f21e0fb8}
+
+
+Method to convert gaussian filter on the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Converted} & opencv image of type cv\+::\+Mat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image blurred using gaussian filter of type cv\+::\+Mat 
+\end{DoxyReturn}
+Apply gaussian filter \index{Object\+Detection@{Object\+Detection}!convert\+Image@{convert\+Image}}
+\index{convert\+Image@{convert\+Image}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{convert\+Image(const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&image\+Data)}{convertImage(const sensor_msgs::Image::ConstPtr &imageData)}}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Detection\+::convert\+Image (
+\begin{DoxyParamCaption}
+\item[{const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&}]{image\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDetection_abb6ea33423e081c37bd38e55f1347f52}{}\label{classObjectDetection_abb6ea33423e081c37bd38e55f1347f52}
+
+
+Callback function for image data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Image} & data from camera node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none  Convert R\+OS image message to CV image 
+\end{DoxyReturn}
+Create an object cv\+\_\+ptr that bridges the R\+OS image and Open\+CV image
+
+Wait for 30ms \index{Object\+Detection@{Object\+Detection}!detect\+Object@{detect\+Object}}
+\index{detect\+Object@{detect\+Object}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{detect\+Object(cv\+::\+Mat image)}{detectObject(cv::Mat image)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Detection\+::detect\+Object (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{image}
+\end{DoxyParamCaption}
+)}\hypertarget{classObjectDetection_a63d13b70232d3d076a6c543c03f9c9ff}{}\label{classObjectDetection_a63d13b70232d3d076a6c543c03f9c9ff}
+
+
+Method to detect object using hsv. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Image} & gaussian filtered image of type cv\+::\+Mat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Match found of type bool 
+\end{DoxyReturn}
+Image conversion from B\+GR to H\+SV
+
+Detect hsv within the set limits
+
+Get image size to modify size of mask image
+
+Find contours for better visualization
+
+Check if contours exist in the image
+
+Find contour with maximum area
+
+Set boundary of the object in the image
+
+Draw the rectangle using the bounding box
+
+Mask image to limit the future turns affecting the output \index{Object\+Detection@{Object\+Detection}!get\+Object\+Boundary@{get\+Object\+Boundary}}
+\index{get\+Object\+Boundary@{get\+Object\+Boundary}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{get\+Object\+Boundary() const }{getObjectBoundary() const }}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Rect Object\+Detection\+::get\+Object\+Boundary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObjectDetection_a897f179535427f66bc9f849b1daff904}{}\label{classObjectDetection_a897f179535427f66bc9f849b1daff904}
+
+
+Get boundary of the object in the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rectangular box containing the object 
+\end{DoxyReturn}
+\index{Object\+Detection@{Object\+Detection}!get\+Object\+Detected@{get\+Object\+Detected}}
+\index{get\+Object\+Detected@{get\+Object\+Detected}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{get\+Object\+Detected() const }{getObjectDetected() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Object\+Detection\+::get\+Object\+Detected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObjectDetection_ac1e795be46de92c3e7c2f050d805d601}{}\label{classObjectDetection_ac1e795be46de92c3e7c2f050d805d601}
+
+
+Get object detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object detected or not of type bool 
+\end{DoxyReturn}
+\index{Object\+Detection@{Object\+Detection}!set\+Object\+Boundary@{set\+Object\+Boundary}}
+\index{set\+Object\+Boundary@{set\+Object\+Boundary}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{set\+Object\+Boundary(cv\+::\+Rect bounding\+Box)}{setObjectBoundary(cv::Rect boundingBox)}}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Detection\+::set\+Object\+Boundary (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Rect}]{bounding\+Box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObjectDetection_af3c1adc86fa3950f0325e5c6de7c9a2e}{}\label{classObjectDetection_af3c1adc86fa3950f0325e5c6de7c9a2e}
+
+
+Set object boundary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Bounding\+Box} & reactagular boundary of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Object\+Detection@{Object\+Detection}!set\+Object\+Detected@{set\+Object\+Detected}}
+\index{set\+Object\+Detected@{set\+Object\+Detected}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{set\+Object\+Detected(bool object)}{setObjectDetected(bool object)}}]{\setlength{\rightskip}{0pt plus 5cm}void Object\+Detection\+::set\+Object\+Detected (
+\begin{DoxyParamCaption}
+\item[{bool}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObjectDetection_a1f0c0d87bb3fdc9082c8f4c450bbf1fb}{}\label{classObjectDetection_a1f0c0d87bb3fdc9082c8f4c450bbf1fb}
+
+
+Set object detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Object} & detected status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Object\+Detection@{Object\+Detection}!converted\+Image@{converted\+Image}}
+\index{converted\+Image@{converted\+Image}!Object\+Detection@{Object\+Detection}}
+\subsubsection[{\texorpdfstring{converted\+Image}{convertedImage}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Object\+Detection\+::converted\+Image}\hypertarget{classObjectDetection_ab3a61dd408dd36da96f7398f14a1a054}{}\label{classObjectDetection_ab3a61dd408dd36da96f7398f14a1a054}
+
+
+Container to store converted image from cv\+\_\+bridge. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/object\+\_\+detection/\hyperlink{object__detection_8h}{object\+\_\+detection.\+h}\item 
+src/\hyperlink{object__detection_8cpp}{object\+\_\+detection.\+cpp}\end{DoxyCompactItemize}

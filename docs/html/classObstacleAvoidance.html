@@ -110,10 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a10de6174bbf71748bb9467981c6f9ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if obstacle is present within safe distance.  <a href="#a10de6174bbf71748bb9467981c6f9ab4">More...</a><br /></td></tr>
 <tr class="separator:a10de6174bbf71748bb9467981c6f9ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bc10665f077a2a22c203289e187ebb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacleAvoidance.html#a9bc10665f077a2a22c203289e187ebb3">getObstacleDetected</a> () const </td></tr>
-<tr class="memdesc:a9bc10665f077a2a22c203289e187ebb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get obstacle detected  <a href="#a9bc10665f077a2a22c203289e187ebb3">More...</a><br /></td></tr>
+<tr class="memdesc:a9bc10665f077a2a22c203289e187ebb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets obstacle detected.  <a href="#a9bc10665f077a2a22c203289e187ebb3">More...</a><br /></td></tr>
 <tr class="separator:a9bc10665f077a2a22c203289e187ebb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab905f3e115e16482e7f8a6b24e0f3cf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObstacleAvoidance.html#ab905f3e115e16482e7f8a6b24e0f3cf1">setObstacleDetected</a> (bool obstacle)</td></tr>
-<tr class="memdesc:ab905f3e115e16482e7f8a6b24e0f3cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">set obstacle detected  <a href="#ab905f3e115e16482e7f8a6b24e0f3cf1">More...</a><br /></td></tr>
+<tr class="memdesc:ab905f3e115e16482e7f8a6b24e0f3cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set obstacle detected.  <a href="#ab905f3e115e16482e7f8a6b24e0f3cf1">More...</a><br /></td></tr>
 <tr class="separator:ab905f3e115e16482e7f8a6b24e0f3cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -137,8 +137,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a constructor has no return </dd></dl>
-<p>Initialize the current value of velocities in m/s and rad/s</p>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 <p>Initialize obstacle detected value with false</p>
 <p>Initialize safe distance from an obstacle in meters</p>
 <p>Subscribe for data from the laser sensor on the scan topic </p>
@@ -170,11 +169,11 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for obstacle avoidance class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">safe</td><td>distance from an obstacle </td></tr>
+    <tr><td class="paramname">Safe</td><td>distance from an obstacle of type float </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a constructor has no return </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 <p>Initialize obstacle detected value with false</p>
 <p>Initialize safe distance from an obstacle in meters</p>
 <p>Subscribe for data from the laser sensor on the scan topic </p>
@@ -201,7 +200,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a destrcutor has no return </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>
@@ -226,7 +225,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>boolean obstacle found or not </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Obstacle found or not of type bool </dd></dl>
 <p>Check if obstacle is ahead </p>
 
 </div>
@@ -252,14 +251,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>get obstacle detected </p>
+<p>Gets obstacle detected. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>boolean obstacle detected or not </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of obstacle detected or not of type bool </dd></dl>
 
 </div>
 </div>
@@ -284,7 +283,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 <p>Read sensor data to get obstacle distances with respect to the robot </p>
 
 </div>
@@ -311,14 +310,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>set obstacle detected </p>
+<p>Set obstacle detected. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">obstacle</td><td>detected status </td></tr>
+    <tr><td class="paramname">Obstacle</td><td>detected status </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>

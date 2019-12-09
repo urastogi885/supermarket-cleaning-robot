@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['movebot',['moveBot',['../classTurtlebot.html#a59b96da462933830798a7617afa62c0a',1,'Turtlebot']]],
-  ['moveforward',['moveForward',['../classTurtlebot.html#ab55e08a3b52c24ef094f591b8945a0e9',1,'Turtlebot']]]
+  ['getobjectboundary',['getObjectBoundary',['../classObjectDetection.html#a897f179535427f66bc9f849b1daff904',1,'ObjectDetection']]],
+  ['getobjectdetected',['getObjectDetected',['../classObjectDetection.html#ac1e795be46de92c3e7c2f050d805d601',1,'ObjectDetection']]],
+  ['getobstacledetected',['getObstacleDetected',['../classObstacleAvoidance.html#a9bc10665f077a2a22c203289e187ebb3',1,'ObstacleAvoidance']]]
 ];

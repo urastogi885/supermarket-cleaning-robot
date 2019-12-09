@@ -43,7 +43,7 @@
  */
 TEST(TurtlebotTest, velocityChangedTest) {
     Turtlebot turtle;
-    EXPECT_FALSE(turtle.checkVelocityChanged());
+    EXPECT_TRUE(turtle.checkVelocityChanged());
 }
 
 /**
@@ -51,8 +51,11 @@ TEST(TurtlebotTest, velocityChangedTest) {
  * @detail	Test to check linear velocity provided to method
  */
 TEST(TurtlebotTest, moveForwardTest) {
-    Turtlebot turtle;
-    EXPECT_EQ(2.0, turtle.moveForward(2.0))
+    /// Define angular and linear velocities for the robot
+    float linVel = 2.0;
+    float angVel = 0.52;
+    Turtlebot turtle(linVel, angVel);
+    EXPECT_EQ(linVel, turtle.moveForward(linVel));
 }
 
 /**
@@ -60,6 +63,17 @@ TEST(TurtlebotTest, moveForwardTest) {
  * @detail	Test to check angular velocity provided to method
  */
 TEST(TurtlebotTest, turnTest) {
+    /// Define angular and linear velocities for the robot
+    float linVel = 2.0;
+    float angVel = 0.52;
+    Turtlebot turtle(linVel, angVel);
+    EXPECT_EQ(angVel, turtle.turn(angVel));
+}
+
+/**
+ * @brief	Test for resetting the bot
+ */
+TEST(TurtlebotTest, resetTest) {
     Turtlebot turtle;
-    EXPECT_EQ(0.52, turtle.turn(0.52));
+    EXPECT_TRUE(turtle.resetBot());
 }

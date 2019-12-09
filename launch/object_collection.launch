@@ -1,0 +1,22 @@
+<launch>
+
+    <!-- Launch the turtlebot world in gazebo-->
+    <include file = "$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+        <arg name="world_file" value="$(find supermarket_cleaning_robot)/data/worlds/supermarket.world"/>
+    </include>
+
+    <node
+        pkg = "supermarket_cleaning_robot"
+        type = "object_collection"
+        name = "object_collection"
+        output = "screen"
+        launch-prefix = "xterm -e"
+    />
+
+    <node 
+        pkg = "supermarket_cleaning_robot"
+        type = "detector"
+        name = "detector"
+        output = "screen"
+    />
+</launch>

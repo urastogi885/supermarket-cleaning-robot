@@ -1,0 +1,5 @@
+<map id="src/navigator.cpp" name="src/navigator.cpp">
+<area shape="rect" id="node3" href="$turtlebot_8h.html" title="Library header file to control motion of the bot &#160;Takes input from both, obstacle avoidance and objec..." alt="" coords="509,80,639,107"/>
+<area shape="rect" id="node10" href="$obstacle__avoidance_8h.html" title="Library header file to implement obstacle avoidance. " alt="" coords="714,155,866,196"/>
+<area shape="rect" id="node5" href="$object__detection_8h.html" title="Library header file to implement object detection &#160;Deploys template matching to detect object in the ..." alt="" coords="432,155,588,196"/>
+</map>

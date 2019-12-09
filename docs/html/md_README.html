@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Currently, most of the robots are only capable of executing a single task. It turns out to be expensive for a store owner to buy a robot that can perform a single task. We propose to develop a robot that can perform various maintenance tasks. The robot will be able to maintain cleanliness as well as make supermarkets autonomous. The robot will able to clean aisles, stack up empty rows, and collect fallen items.</p>
 <p>For prototyping, we are focusing on only one task that is identifying and collecting the items using the robot. The robot will roam in a supermarket like environment in Gazebo and identify the type of items that it needs to collect. It identifies the item using a camera, mounted on its base, and moves towards the fallen item. Here, we are considering objects such as food, soft drinks cans and it is assumed that the robot will already know the type of item that it needs to pick. As the robot reaches the location of the item and touches it, the item will vanish depicting that the item is collected using a suction cup. The robot will traverse randomly in the supermarket and keep on collecting a can. We are focusing on the detection of cans using the OpenCV to improve the processing of the detection feature. In addition to this, the robot has an obstacle avoidance feature that is used to prevent the robot from colliding from obstacles such as humans, uninteresting items and walls/shelves.</p>
 <div class="image">
-<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/readme_images/initial_proposal_setup.png" />
+<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/initial_proposal_setup.png" />
 </div>
 <p> <b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b> </p>
 <h2>Team Members</h2>
@@ -104,6 +104,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Access UML diagrams from the <em>initial</em> folder located within <em>UML</em> sub-directory.</li>
 </ul>
 <h2>API Documentations</h2>
+<ul>
+<li><a href="http://gazebosim.org/tutorials?tut=model_population&amp;cat=build_world">Gazebo Population Tag</a></li>
+<li><a href="http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages">cv_bridge</a></li>
+<li><a href="https://docs.opencv.org/master/de/da9/tutorial_template_matching.html">Template Matching</a></li>
+</ul>
 <h2>Dependencies</h2>
 <ul>
 <li>Ubuntu 16.04</li>
@@ -124,17 +129,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>If an error pops up upo launching the turtlebot world, then install the necessary turtlebot packages: <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt install ros-kinetic-turtlebot-gazebo ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers</div></div><!-- fragment --></li>
 <li>Create your ROS workspace by following instructions on the <a href="http://wiki.ros.org/catkin/Tutorials/create_a_workspace"><em>create ROS workspace tutortial page</em></a>.</li>
 </ul>
+<h2>Known Bugs and Issues</h2>
+<p>This project is under-development. Currently, we are facing build issues. Sorry for the inconvenience.</p>
 <h2>Build</h2>
 <ul>
 <li>***Ignore this section*** as nothing to be built has been added yet.</li>
 <li>Even if you run the following, it will not impact your existing workspace.</li>
 <li>Switch to your <em>src</em> sub-directory of your ROS workspace to clone this repository. <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;ROS Workspace&gt;/src</div></div><!-- fragment --></li>
-<li>Run the following commands to clone and build this project: <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recursive https://github.com/urastogi885/obstacle_avoidance_simulation</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd ..</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;catkin_make</div></div><!-- fragment --></li>
+<li>Run the following commands to clone and build this project: <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone --recursive https://github.com/urastogi885/obstacle_avoidance_simulation</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git checkout Phase3</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cd ..</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;catkin_make</div></div><!-- fragment --></li>
 </ul>
 <h2>Test</h2>
-<h2>Run</h2>
-<h2>Demo</h2>
-<h2>Known Bugs</h2>
+<p>Close and terminate everything including rosmaster. In a new terminal, switch to the ROS workspace and build the tests. Type</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd catkin_ws</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;source devel/setup.bash</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;catkin_make run_tests_test_project_x_robot</div></div><!-- fragment --><h2>Run</h2>
+<p>Now, we use launch file to run. In a new terminal, type</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd catkin_ws</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;source devel/setup.bash</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;roslaunch supermarket_cleaning_robot object_collection.launch</div></div><!-- fragment --><h2>Doxygen</h2>
+<p>To install doxygen run the following command:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt-get install doxygen</div></div><!-- fragment --><p> Now from the cloned directory run:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;doxygen doxygen</div></div><!-- fragment --><p>Generated doxygen files are in html format and you can find them in ./docs folder. With the following command</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;firefox docs/html/index.html</div></div><!-- fragment --><h2>Demo</h2>
+<p>We will update in the next phase by next week. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
