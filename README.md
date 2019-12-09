@@ -149,12 +149,8 @@ firefox docs/html/index.html
 
 ## Demo
 
-<<<<<<< HEAD
 In this demo, the turtlebot is our cleaner robot which traverses in the supermarket environment and keeps on scanning for the cans. As the can is detected, a bounding box is created and then the turtlebot apprached towards the can to collect it.
 <p align="center">
 <img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/demo.gif">
 <b>Figure 2 - Demo of Robot scanning and detecting items</b>
 </p>
-=======
-We will update in the next phase by next week.
->>>>>>> 71f78fc4bc16c7fd4bd75313edfdd415dd4d1bef
