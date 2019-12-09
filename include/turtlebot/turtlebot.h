@@ -60,6 +60,12 @@ class Turtlebot {
   float prevLinearVelocity, prevAngularVelocity;
   /// Initialize publishing rate
   const int publishRate = 500;
+  /// Obstacle detection and template matching variables
+  /*
+  const std::string opencvWindow = "image_window";
+  const int maxTrackbar = 5;
+  int matchMethod;
+  char* trackbarLabel;*/
 
  public:
 	/**
