@@ -37,14 +37,10 @@
 #ifndef INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 #define INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 
-#include "iostream"
 #include "ros/ros.h"
-#include "sensor_msgs/Image.h"
 #include "cv_bridge/cv_bridge.h"
-#include "sensor_msgs/image_encodings.h"
-#include "image_transport/image_transport.h"
+#include "opencv2/opencv.hpp"
 #include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
 
 class ObjectDetection {
  private:
@@ -54,22 +50,18 @@ class ObjectDetection {
   ros::Subscriber subscibeImages;
   /// Store copy of the ros image converted into cv image
   cv::Mat convertedImage;
+  cv::Mat hsvImage, maskImage;
   /// Define object coordinates
-  cv::Rect objectLocation;
-  /// Container to store template
-  cv::Mat templ;
-  /// Define object for Image Transport
-  image_transport::ImageTransport it;
-  /// Defining subscriber object
-  image_transport::Subscriber image_sub;
-  /// Defining publisher object
-  image_transport::Publisher image_pub;
-  /// Source array
-  cv::Mat result;
-  /// Object bounding box
   cv::Rect objectBoundary;
-  double minVal, maxVal;
-  cv::Point minLoc, maxLoc,matchLoc;
+  /// Define upper and lower limit of color
+  /// Defined red as coca-cola can is red in color
+  const cv::Scalar colorLowerLimit = {0, 0, 100};
+  const cv::Scalar colorUpperLimit = {0, 0, 255};
+  /// size of an image
+  cv::Size imageSize;
+  /// Define image array for contours
+  std::vector<std::vector<cv::Point> > imageArray;
+  bool objectDetected;
 
  public:
 	/**
@@ -78,14 +70,6 @@ class ObjectDetection {
   * @return a constructor has no return
   */
   ObjectDetection();
-
-  /**
-   * @brief Method to get image file and template file
-   * @param none
-   * @return coverted image of type cv::Mat
-   * @details
-   */ 
-  cv::Mat readImage(std::string imagePath);
 
   /**
   * @brief Destructor for object detection class
@@ -103,18 +87,54 @@ class ObjectDetection {
   void convertImage(const sensor_msgs::Image::ConstPtr& imageData);
 
   /**
-   * @brief Method to implement template matching
-   * @param coverted image of type cv::Mat
+   * @brief Method to detect object using hsv
+   * @param converted opencv image
    * @return match found
    */
-  bool templateMatching();
+  bool detectObject();
 
   /**
-   * @brief Method to get location of object in the turtlebot world
-   * @param none
-   * @return location of object of type cv::Rect
+   * @brief Method to gaussian filter on the image
+   * @param converted opencv image
+   * @return image blurred using gaussian filter
    */
-  cv::Rect getObjectLocation();
+  cv::Mat applyGaussBlur();
+
+  /**
+   * @brief Get boundary of the object in the image
+   * @param none
+   * @return rectangular box containing the object
+   */
+  cv::Rect getObjectBoundary() const {
+    return objectBoundary;
+  }
+
+  /**
+  * @brief set object boundary
+  * @param boundingBox reactagular boundary of the object
+  * @return void
+  */
+  void setObjectBoundary(cv::Rect boundingBox) {
+    objectBoundary = boundingBox;
+  }
+
+  /**
+  * @brief get object detected
+  * @param none
+  * @return object detected or not
+  */
+  bool getObjectDetected() const {
+    return objectDetected;
+  }
+
+  /**
+  * @brief set object detected
+  * @param object detected status
+  * @return void
+  */
+  void setObjectDetected(bool object) {
+    objectDetected = object;
+  }
 };
 
 #endif  // INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
