@@ -103,7 +103,7 @@ Switch to your *src* sub-directory of your ROS workspace to clone this repositor
 ```
 - Run the following commands to clone and build this project:
 ```
-git clone --recursive https://github.com/urastogi885/obstacle_avoidance_simulation
+git clone --recursive https://github.com/urastogi885/Supermarket-Cleaning-Robot
 cd ..
 catkin_make
 ```
