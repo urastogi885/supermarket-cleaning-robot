@@ -66,16 +66,3 @@ TEST(ObjectDetectionTest, setBoundary) {
     objectDetection.setObjectBoundary(boundingBox);
     EXPECT_EQ(objectDetection.getObjectBoundary(), boundingBox);
 }
-
-/**
- * @brief	Test to check object detection using hsv
- */
-TEST(ObjectDetectionTest, checkObject) {
-	ObjectDetection objectDetection;
-	bool objectDetected;
-	if (!objectDetection.convertedImage.empty()) {
-    	objectDetected = objectDetection.detectObject(
-    		objectDetection.applyGaussBlur(objectDetection.convertedImage));
-	}
-    EXPECT_FALSE(objectDetected);
-}
