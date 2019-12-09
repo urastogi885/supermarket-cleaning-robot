@@ -1,7 +1,7 @@
 /**
  * BSD 3-Clause License
  *
- * @copyright (c) 2019, Umang Rastogi Naman Gupta
+ * @copyright (c) 2019, Umang Rastogi, Naman Gupta
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -27,11 +27,11 @@
  */
 
 /**
- * @file turtlebot.cpp
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Source file to implement turtlebot class
- * @detail Controls the motion of the bot using obstacle avoidance and go-to-goal strategies
+ * @file    turtlebot.cpp
+ * @author  Umang Rastogi - Driver
+ * @author  Naman Gupta - Navigator
+ * @brief   Source file to implement turtlebot class
+ * @detail  Controls the motion of the bot using obstacle avoidance and go-to-goal strategies
  */
 
 /// Add ROS headers
@@ -79,19 +79,17 @@ Turtlebot::~Turtlebot() {
 float Turtlebot::moveForward(float linVelX) {
   velocities.linear.x = linVelX;
   velocities.angular.z = 0.0;
-
   return velocities.linear.x;
 }
 
 float Turtlebot::turn(float angVelZ) {
   velocities.linear.x = 0.0;
   velocities.angular.z = angVelZ;
-
   return velocities.angular.z;
 }
 
 void Turtlebot::moveBot(ObstacleAvoidance& obstacleAvoidance) {
-  // Set the publishing rate
+  /// Set the publishing rate
   ros::Rate loop_rate(publishRate);
   while (ros::ok()) {
     if (obstacleAvoidance.checkObstacle()) {
@@ -132,7 +130,6 @@ bool Turtlebot::resetBot() {
 }
 
 bool Turtlebot::checkVelocityChanged() {
-  /// Linear and angular change simultaneously
   /// Check if both the velocities have changed
   if (velocities.linear.x != prevLinearVelocity and \
       velocities.angular.z != prevAngularVelocity) {

@@ -25,12 +25,14 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
 /**
- * @file object_detection.h
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Library header file to implement object detection
- * @detail Implements object detection using HSV
+ * @file    object_detection.cpp
+ * @author  Umang Rastogi   - Driver
+ * @author  Naman Gupta     - Navigator
+ * @brief   File to implement ObjectDetection class
+ * @detail  Implements object detection using HSV method which detects color of 
+ *          the can in a certain range and creates a bounding box over it.
  */
 
 #include "ros/ros.h"
@@ -42,6 +44,7 @@
 
 ObjectDetection::ObjectDetection() {
   ROS_INFO_STREAM("Initiliazing obejct detection...");
+  /// Subscribe to turtlebot camera to get feed from the camera
   subscribeImages = nh.subscribe("/camera/rgb/image_raw", 1,
     &ObjectDetection::convertImage, this);
   ROS_INFO_STREAM("Object detection set up complete");
@@ -49,10 +52,12 @@ ObjectDetection::ObjectDetection() {
 
 void ObjectDetection::convertImage(const
   sensor_msgs::Image::ConstPtr& imageData) {
+  /// Create an object cv_ptr that bridges the ROS image and OpenCV image
   cv_bridge::CvImagePtr cv_ptr;
   try {
     cv_ptr = cv_bridge::toCvCopy(imageData, sensor_msgs::image_encodings::BGR8);
     convertedImage = cv_ptr->image;
+    /// Wait for 30ms
     cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e) {
@@ -62,7 +67,7 @@ void ObjectDetection::convertImage(const
 }
 
 bool ObjectDetection::detectObject(cv::Mat image) {
-  /// Convert image from bgr to hsv
+  /// Image conversion from BGR to HSV
   cv::cvtColor(image, hsvImage, CV_BGR2HSV);
   /// Detect hsv within the set limits
   cv::inRange(hsvImage, colorLowerLimit, colorUpperLimit, maskImage);

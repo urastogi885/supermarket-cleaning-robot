@@ -28,8 +28,8 @@
 
 /**
  * @file	obstacle_detection_test.cpp
- * @author	Naman Gupta 	- Navigator
- * @author	Umang Rastogi 	- Driver
+ * @author	Naman Gupta 	- Driver
+ * @author	Umang Rastogi 	- Navigator
  * @brief	Class test implementation of class ObstacleAvoidance
  * @details	Test the methods of class ObstacleAvoidance
  */
@@ -73,11 +73,12 @@ TEST(ObjectDetectionTest, setBoundary) {
 TEST(ObjectDetectionTest, gaussFilter) {
     ObjectDetection objectDetection;
     bool gaussCheck = true;
+    /// Check if file empty or not
     if (!objectDetection.convertedImage.empty()) {
         cv::Mat gaussImg = objectDetection.applyGaussBlur(
     		objectDetection.convertedImage);
     	if(gaussImg.size() == objectDetection.convertedImage.size()) {
-    		// These two images do not hace the same size due to smoothening
+    	/// These two images do not hace the same size due to smoothening
     		gaussCheck = false;
     	}
     }
@@ -94,5 +95,6 @@ TEST(ObjectDetectionTest, checkObject) {
     	objectDetected = objectDetection.detectObject(
     		objectDetection.applyGaussBlur(objectDetection.convertedImage));
     }
+    /// Check for condition when obstacle not detected
     EXPECT_FALSE(objectDetected);
 }

@@ -1,7 +1,7 @@
 /**
  * BSD 3-Clause License
  *
- * @copyright (c) 2019, Umang Rastogi Naman Gupta
+ * @copyright (c) 2019, Umang Rastogi, Naman Gupta
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -24,13 +24,15 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @file obstacle_avoidance.h
- * @author Umang Rastogi - Driver
- * @author Naman Gupta - Navigator
- * @brief Library header file to implement obstacle avoidance
- * @detail Uses laser sensor for obstacle avoidance
- * @detail Publishes velocities for the robot upon obstacle detection
+ */
+
+/**
+ * @file    obstacle_avoidance.cpp
+ * @author  Umang Rastogi - Driver
+ * @author  Naman Gupta   - Navigator
+ * @brief   Source file to implement obstacle avoidance class
+ * @detail  Uses laser sensor for obstacle avoidance 
+ *          publishes velocities for the robot upon obstacle detection
  */
 
 #include "ros/ros.h"
@@ -72,7 +74,6 @@ void ObstacleAvoidance::laserSensorCallback(
       return;
     }
   }
-
   setObstacleDetected(false);
 }
 
@@ -82,7 +83,6 @@ bool ObstacleAvoidance::checkObstacle() {
     ROS_WARN_STREAM("Obstacle ahead!");
     return true;
   }
-
   return false;
 }
 

@@ -1,7 +1,8 @@
 /**
  * BSD 3-Clause License
  *
- * @copyright (c) 2019, Umang Rastogi Naman Gupta
+ * @copyright (c) 2019, Umang Rastogi, Naman Gupta
+ * 
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -52,55 +53,55 @@ class ObstacleAvoidance {
 
  public:
   /**
-  * @brief Constructor for obstacle avoidance class
-  * @param none
-  * @return a constructor has no return
+  * @brief  Constructor for obstacle avoidance class
+  * @param  none
+  * @return none
   */
   ObstacleAvoidance();
 
   /**
-  * @brief Constructor for obstacle avoidance class
-  * @param safe distance from an obstacle
-  * @return a constructor has no return
+  * @brief  Constructor for obstacle avoidance class
+  * @param  Safe distance from an obstacle of type float
+  * @return none
   */
   explicit ObstacleAvoidance(float distThreshold);
 
   /**
-  * @brief Destructor for obstacle avoidance class
-  * @param none
-  * @return a destrcutor has no return
-  */
+   * @brief   Destructor for obstacle avoidance class
+   * @param   none
+   * @return  none
+   */
   ~ObstacleAvoidance();
 
   /**
-  * @brief Callback function for subscriber
-  * @param messsage data from LaserScan node
-  * @return void
-  */
+   * @brief   Callback function for subscriber
+   * @param   messsage data from LaserScan node
+   * @return  none
+   */
   void laserSensorCallback(const sensor_msgs::LaserScan::ConstPtr& \
                       sensorData);
 
   /**
-  * @brief Checks if obstacle is present within safe distance
-  * @param none
-  * @return boolean obstacle found or not
-  */
+   * @brief   Checks if obstacle is present within safe distance
+   * @param   none
+   * @return  Obstacle found or not of type bool
+   */
   bool checkObstacle();
 
   /**
-  * @brief get obstacle detected
-  * @param none
-  * @return boolean obstacle detected or not
-  */
+   * @brief  Gets obstacle detected
+   * @param  none
+   * @return Status of obstacle detected or not of type bool
+   */
   bool getObstacleDetected() const {
     return obstacleDetected;
   }
 
   /**
-  * @brief set obstacle detected
-  * @param obstacle detected status
-  * @return void
-  */
+   * @brief   Set obstacle detected
+   * @param   Obstacle detected status
+   * @return  none
+   */
   void setObstacleDetected(bool obstacle) {
     obstacleDetected = obstacle;
   }
