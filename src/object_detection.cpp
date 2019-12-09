@@ -43,15 +43,17 @@
 #include "opencv2/imgproc/imgproc.hpp"
 
 ObjectDetection::ObjectDetection() {
+  ROS_INFO_STREAM("Initiliazing obejct detection...");
   subscribeImages = nh.subscribe("/camera/rgb/image_raw", 1,
     &ObjectDetection::convertImage, this);
+  ROS_INFO_STREAM("Object detection set up complete");
 }
 
 void ObjectDetection::convertImage(const sensor_msgs::Image::ConstPtr& imageData) {
   cv_bridge::CvImagePtr cv_ptr;
   try {
     cv_ptr = cv_bridge::toCvCopy(imageData, sensor_msgs::image_encodings::BGR8);
-    cvtImage = cv_ptr->image;
+    convertedImage = cv_ptr->image;
     cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e) {
@@ -86,11 +88,9 @@ bool ObjectDetection::detectObject(cv::Mat image) {
     /// Set boundary of the object in the image
     setObjectBoundary(cv::boundingRect(imageArray[maxAreaContour]));
     /// Draw the rectangle using the bounding box
-    rectangle(image, getObjectBoundary(), cv::Scalar(255, 0, 0), 2);
+    rectangle(image, getObjectBoundary(), cv::Scalar(0, 255, 0), 2);
   }
   /// Mask image to limit the future turns affecting the output
-  maskImage(cv::Rect(0.7*imageSize.width, 0, \
-                0.3*imageSize.width, imageSize.height)) = 0;
   maskImage(cv::Rect(0, 0, 0.3*imageSize.width, imageSize.height)) = 0;
 
   if (cv::countNonZero(maskImage) == 0) {
@@ -98,7 +98,10 @@ bool ObjectDetection::detectObject(cv::Mat image) {
   } else {
      setObjectDetected(false);
   }
-
+  cv::namedWindow("HSVImage");
+  cv::namedWindow("Turtlebot View");
+  imshow("HSVImage", hsvImage);
+  imshow("Turtlebot View", image);
   return getObjectDetected();
 }
 

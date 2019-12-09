@@ -31,9 +31,8 @@
  */
 
 /**
- *@file       listener.cpp
+ *@file       detector.cpp
  *@author     Naman Gupta
- *@copyright  GNU
  *@brief      ROS subscriber subscribes to talker.cpp to listen the message
  *            sent by the publisher node.
  */
@@ -47,10 +46,13 @@ int main(int argc, char **argv) {
   ObjectDetection objDet;
 
   while (ros::ok()) {
-    if (!objDet.cvtImage.empty()) {
-        objDet.img_filt = objDet.applyGaussBlur(objDet.cvtImage);
+    if (!objDet.convertedImage.empty()) {
+        objDet.detectObject(objDet.applyGaussBlur(objDet.convertedImage));
     }
   ros::spinOnce();
   }
+
+  cv::destroyWindow("HSVImage");
+  cv::destroyWindow("Turtlebot View");
   return 0;
 }

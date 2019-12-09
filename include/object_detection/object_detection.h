@@ -56,8 +56,8 @@ class ObjectDetection {
   cv::Rect objectBoundary;
   /// Define upper and lower limit of color
   /// Defined red as coca-cola can is red in color
-  const cv::Scalar colorLowerLimit = {0, 0, 100};
-  const cv::Scalar colorUpperLimit = {0, 0, 255};
+  const cv::Scalar colorLowerLimit = {170, 50, 50};
+  const cv::Scalar colorUpperLimit = {255, 200, 90};
   /// size of an image
   cv::Size imageSize;
   /// Define image array for contours
@@ -70,8 +70,6 @@ class ObjectDetection {
   * @param none
   * @return a constructor has no return
   */
-  cv::Mat cvtImage;
-  cv::Mat img_filt;  /// Filtered image in opencv matrix format
   ObjectDetection();
 
   /**
@@ -80,6 +78,13 @@ class ObjectDetection {
   * @return none
   */
   ~ObjectDetection();
+
+  /**
+  * @brief converted image from ros to opencv
+  * @param none
+  * @return none
+  */
+  cv::Mat convertedImage;
 
   /**
   * @brief Callback function for image data
