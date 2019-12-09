@@ -1,5 +1,8 @@
 <map id="include/obstacle_avoidance/obstacle_avoidance.h" name="include/obstacle_avoidance/obstacle_avoidance.h">
-<area shape="rect" id="node2" href="$obstacle__avoidance_8cpp.html" title="src/obstacle_avoidance.cpp" alt="" coords="5,102,189,129"/>
-<area shape="rect" id="node3" href="$turtlebot_8cpp.html" title="Source file to implement turtlebot class &#160;Controls the motion of the bot using obstacle avoidance and..." alt="" coords="214,102,330,129"/>
-<area shape="rect" id="node4" href="$obstacle__avoidance__test_8cpp.html" title="Class test implementation of class ObstacleAvoidance. " alt="" coords="355,95,517,136"/>
+<area shape="rect" id="node2" href="$turtlebot_8h.html" title="Library header file to control motion of the bot &#160;Takes input from both, obstacle avoidance and objec..." alt="" coords="139,102,315,129"/>
+<area shape="rect" id="node3" href="$navigator_8cpp.html" title="src/navigator.cpp" alt="" coords="5,184,128,211"/>
+<area shape="rect" id="node4" href="$turtlebot_8cpp.html" title="Navigator node to implement obstacle avoidance and move bot algorithm. " alt="" coords="326,184,442,211"/>
+<area shape="rect" id="node6" href="$obstacle__avoidance_8cpp.html" title="Source file to implement obstacle avoidance class &#160;Uses laser sensor for obstacle avoidance publishes..." alt="" coords="389,102,573,129"/>
+<area shape="rect" id="node7" href="$obstacle__avoidance__test_8cpp.html" title="Class test implementation of class ObstacleAvoidance. " alt="" coords="597,95,760,136"/>
+<area shape="rect" id="node5" href="$turtlebot__test_8cpp.html" title="test/turtlebot_test.cpp" alt="" coords="152,184,301,211"/>
 </map>

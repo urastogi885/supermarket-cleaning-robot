@@ -18,9 +18,9 @@ void \hyperlink{classObstacleAvoidance_af03480261c682c2b9b4026f377cc9e3f}{laser\
 bool \hyperlink{classObstacleAvoidance_a10de6174bbf71748bb9467981c6f9ab4}{check\+Obstacle} ()
 \begin{DoxyCompactList}\small\item\em Checks if obstacle is present within safe distance. \end{DoxyCompactList}\item 
 bool \hyperlink{classObstacleAvoidance_a9bc10665f077a2a22c203289e187ebb3}{get\+Obstacle\+Detected} () const 
-\begin{DoxyCompactList}\small\item\em get obstacle detected \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets obstacle detected. \end{DoxyCompactList}\item 
 void \hyperlink{classObstacleAvoidance_ab905f3e115e16482e7f8a6b24e0f3cf1}{set\+Obstacle\+Detected} (bool obstacle)
-\begin{DoxyCompactList}\small\item\em set obstacle detected \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set obstacle detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -41,10 +41,8 @@ Constructor for obstacle avoidance class.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a constructor has no return 
+none 
 \end{DoxyReturn}
-Initialize the current value of velocities in m/s and rad/s
-
 Initialize obstacle detected value with false
 
 Initialize safe distance from an obstacle in meters
@@ -62,11 +60,11 @@ Constructor for obstacle avoidance class.
 
 
 \begin{DoxyParams}{Parameters}
-{\em safe} & distance from an obstacle \\
+{\em Safe} & distance from an obstacle of type float \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a constructor has no return 
+none 
 \end{DoxyReturn}
 Initialize obstacle detected value with false
 
@@ -89,7 +87,7 @@ Destructor for obstacle avoidance class.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a destrcutor has no return 
+none 
 \end{DoxyReturn}
 
 
@@ -111,7 +109,7 @@ Checks if obstacle is present within safe distance.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-boolean obstacle found or not 
+Obstacle found or not of type bool 
 \end{DoxyReturn}
 Check if obstacle is ahead \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!get\+Obstacle\+Detected@{get\+Obstacle\+Detected}}
 \index{get\+Obstacle\+Detected@{get\+Obstacle\+Detected}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
@@ -122,7 +120,7 @@ Check if obstacle is ahead \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!get\
 ) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObstacleAvoidance_a9bc10665f077a2a22c203289e187ebb3}{}\label{classObstacleAvoidance_a9bc10665f077a2a22c203289e187ebb3}
 
 
-get obstacle detected 
+Gets obstacle detected. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -130,7 +128,7 @@ get obstacle detected
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-boolean obstacle detected or not 
+Status of obstacle detected or not of type bool 
 \end{DoxyReturn}
 \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!laser\+Sensor\+Callback@{laser\+Sensor\+Callback}}
 \index{laser\+Sensor\+Callback@{laser\+Sensor\+Callback}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
@@ -149,7 +147,7 @@ Callback function for subscriber.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+none 
 \end{DoxyReturn}
 Read sensor data to get obstacle distances with respect to the robot \index{Obstacle\+Avoidance@{Obstacle\+Avoidance}!set\+Obstacle\+Detected@{set\+Obstacle\+Detected}}
 \index{set\+Obstacle\+Detected@{set\+Obstacle\+Detected}!Obstacle\+Avoidance@{Obstacle\+Avoidance}}
@@ -160,15 +158,15 @@ Read sensor data to get obstacle distances with respect to the robot \index{Obst
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classObstacleAvoidance_ab905f3e115e16482e7f8a6b24e0f3cf1}{}\label{classObstacleAvoidance_ab905f3e115e16482e7f8a6b24e0f3cf1}
 
 
-set obstacle detected 
+Set obstacle detected. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em obstacle} & detected status \\
+{\em Obstacle} & detected status \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+none 
 \end{DoxyReturn}
 
 

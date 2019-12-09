@@ -11,7 +11,13 @@ Directory dependency graph for src\+:
 \subsection*{Files}
 \begin{DoxyCompactItemize}
 \item 
-file \hyperlink{obstacle__avoidance_8cpp}{obstacle\+\_\+avoidance.\+cpp}
+file \hyperlink{detector_8cpp}{detector.\+cpp}
+\begin{DoxyCompactList}\small\item\em Detector node file to implement object detection algorithm  Implements object detection algorithm using H\+SV color detection. \end{DoxyCompactList}\item 
+file \hyperlink{navigator_8cpp}{navigator.\+cpp}
 \item 
+file \hyperlink{object__detection_8cpp}{object\+\_\+detection.\+cpp}
+\begin{DoxyCompactList}\small\item\em File to implement \hyperlink{classObjectDetection}{Object\+Detection} class  Implements object detection using H\+SV method which detects color of the can in a certain range and creates a bounding box over it. \end{DoxyCompactList}\item 
+file \hyperlink{obstacle__avoidance_8cpp}{obstacle\+\_\+avoidance.\+cpp}
+\begin{DoxyCompactList}\small\item\em Source file to implement obstacle avoidance class  Uses laser sensor for obstacle avoidance publishes velocities for the robot upon obstacle detection. \end{DoxyCompactList}\item 
 file \hyperlink{turtlebot_8cpp}{turtlebot.\+cpp}
-\begin{DoxyCompactList}\small\item\em Source file to implement turtlebot class  Controls the motion of the bot using obstacle avoidance and go-\/to-\/goal strategies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Navigator node to implement obstacle avoidance and move bot algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}

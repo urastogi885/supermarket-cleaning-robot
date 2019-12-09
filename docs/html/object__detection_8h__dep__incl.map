@@ -1,3 +1,9 @@
 <map id="include/object_detection/object_detection.h" name="include/object_detection/object_detection.h">
-<area shape="rect" id="node2" href="$turtlebot_8cpp.html" title="Source file to implement turtlebot class &#160;Controls the motion of the bot using obstacle avoidance and..." alt="" coords="29,95,145,121"/>
+<area shape="rect" id="node2" href="$turtlebot_8h.html" title="Library header file to control motion of the bot &#160;Takes input from both, obstacle avoidance and objec..." alt="" coords="147,102,323,129"/>
+<area shape="rect" id="node4" href="$turtlebot_8cpp.html" title="Navigator node to implement obstacle avoidance and move bot algorithm. " alt="" coords="326,184,442,211"/>
+<area shape="rect" id="node6" href="$detector_8cpp.html" title="Detector node file to implement object detection algorithm &#160;Implements object detection algorithm usi..." alt="" coords="414,102,530,129"/>
+<area shape="rect" id="node7" href="$object__detection_8cpp.html" title="File to implement ObjectDetection class &#160;Implements object detection using HSV method which detects c..." alt="" coords="554,102,718,129"/>
+<area shape="rect" id="node8" href="$object__detection__test_8cpp.html" title="test/object_detection\l_test.cpp" alt="" coords="742,95,885,136"/>
+<area shape="rect" id="node3" href="$navigator_8cpp.html" title="src/navigator.cpp" alt="" coords="5,184,128,211"/>
+<area shape="rect" id="node5" href="$turtlebot__test_8cpp.html" title="test/turtlebot_test.cpp" alt="" coords="152,184,301,211"/>
 </map>
