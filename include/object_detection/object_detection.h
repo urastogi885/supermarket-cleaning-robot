@@ -96,7 +96,7 @@ class ObjectDetection {
 
   /**
    * @brief Method to detect object using hsv
-   * @param converted opencv image
+   * @param image gaussian filtered image
    * @return match found
    */
   bool detectObject(cv::Mat image);

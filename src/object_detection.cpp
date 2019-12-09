@@ -33,8 +33,6 @@
  * @detail Implements object detection using HSV
  */
 
-#include <iostream>
-#include <vector>
 #include "ros/ros.h"
 #include "sensor_msgs/Image.h"
 #include "cv_bridge/cv_bridge.h"
