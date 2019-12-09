@@ -9474,11 +9474,14 @@
           <uri>model://coke_can</uri>
         </include>
       </model>
+      <gazebo reference="can1">
+      	<material>Gazebo/Blue</material>
+      </gazebo>
       <pose>0 0 0 0 0 0</pose>
       <box>
-        <size>10 10 0.01</size>
+        <size>15 15 0.01</size>
       </box>
-      <model_count>20</model_count>
+      <model_count>60</model_count>
       <distribution>
         <type>random</type>
       </distribution>
