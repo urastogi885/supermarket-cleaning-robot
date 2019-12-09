@@ -37,6 +37,7 @@
 #ifndef INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 #define INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 
+#include "iostream"
 #include "ros/ros.h"
 #include "sensor_msgs/Image.h"
 #include "cv_bridge/cv_bridge.h"
@@ -49,18 +50,12 @@ class ObjectDetection {
  private:
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
-  /// Define a publisher object to publish velocities for the robot
-  ros::Publisher publishLocation;
   /// Define a subscriber object to data of the laser sensor
   ros::Subscriber subscibeImages;
-  /// Declare publishing rate
-  float publishingRate;
   /// Store copy of the ros image converted into cv image
   cv::Mat convertedImage;
   /// Define object coordinates
   cv::Rect objectLocation;
-  /// Container to store image
-  cv::Mat image;
   /// Container to store template
   cv::Mat templ;
   /// Define object for Image Transport
@@ -71,6 +66,10 @@ class ObjectDetection {
   image_transport::Publisher image_pub;
   /// Source array
   cv::Mat result;
+  /// Object bounding box
+  cv::Rect objectBoundary;
+  double minVal, maxVal;
+  cv::Point minLoc, maxLoc,matchLoc;
 
  public:
 	/**
@@ -86,7 +85,7 @@ class ObjectDetection {
    * @return coverted image of type cv::Mat
    * @details
    */ 
-  cv::Mat readImage();
+  cv::Mat readImage(std::string imagePath);
 
   /**
   * @brief Destructor for object detection class
@@ -106,9 +105,9 @@ class ObjectDetection {
   /**
    * @brief Method to implement template matching
    * @param coverted image of type cv::Mat
-   * @return image of type bool
+   * @return match found
    */
-  void templateMatching();
+  bool templateMatching();
 
   /**
    * @brief Method to get location of object in the turtlebot world
