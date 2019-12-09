@@ -51,7 +51,8 @@ Turtlebot::Turtlebot() {
   prevLinearVelocity = linearVelocity;
   prevAngularVelocity = angularVelocity;
   /// Publish the velocities to the robot on the navigation topic
-  publishVelocities = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 1000);
+  publishVelocities = nh.advertise<geometry_msgs::Twist>
+       ("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO_STREAM("Set up complete");
 }
 
@@ -64,7 +65,8 @@ Turtlebot::Turtlebot(float linVelX, float angVelZ) {
   prevLinearVelocity = linearVelocity;
   prevAngularVelocity = angularVelocity;
   /// Publish the velocities to the robot on the navigation topic
-  publishVelocities = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 1000);
+  publishVelocities = nh.advertise<geometry_msgs::Twist>
+        ("/cmd_vel_mux/input/navi", 1000);
   ROS_INFO_STREAM("Set up complete");
 }
 
@@ -86,10 +88,6 @@ float Turtlebot::turn(float angVelZ) {
   velocities.angular.z = angVelZ;
 
   return velocities.angular.z;
-}
-
-bool Turtlebot::collectObject() {
-  return false;
 }
 
 void Turtlebot::moveBot(ObstacleAvoidance& obstacleAvoidance) {

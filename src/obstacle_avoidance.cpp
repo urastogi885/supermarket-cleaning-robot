@@ -62,8 +62,6 @@ ObstacleAvoidance::ObstacleAvoidance(float distThreshold) {
   ROS_INFO_STREAM("Set up complete");
 }
 
-ObstacleAvoidance::~ObstacleAvoidance() {}
-
 void ObstacleAvoidance::laserSensorCallback(
   const sensor_msgs::LaserScan::ConstPtr& sensorData) {
   /// Read sensor data to get obstacle distances with respect to the robot
@@ -87,3 +85,5 @@ bool ObstacleAvoidance::checkObstacle() {
 
   return false;
 }
+
+ObstacleAvoidance::~ObstacleAvoidance() {}

@@ -58,8 +58,8 @@ TEST(ObstacleAvoidanceTest, obstacleDetected) {
  * @brief	Test to check obstacle
  */
 TEST(ObstacleAvoidanceTest, checkObstacle) {
-	/// Define distance threshold for obstacles
-	float distThresh = 0.5;
+    /// Define distance threshold for obstacles
+    float distThresh = 0.5;
     ObstacleAvoidance obstacle(distThresh);
     EXPECT_FALSE(obstacle.checkObstacle());
 }

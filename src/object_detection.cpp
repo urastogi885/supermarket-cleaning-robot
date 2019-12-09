@@ -47,7 +47,8 @@ ObjectDetection::ObjectDetection() {
   ROS_INFO_STREAM("Object detection set up complete");
 }
 
-void ObjectDetection::convertImage(const sensor_msgs::Image::ConstPtr& imageData) {
+void ObjectDetection::convertImage(const
+  sensor_msgs::Image::ConstPtr& imageData) {
   cv_bridge::CvImagePtr cv_ptr;
   try {
     cv_ptr = cv_bridge::toCvCopy(imageData, sensor_msgs::image_encodings::BGR8);

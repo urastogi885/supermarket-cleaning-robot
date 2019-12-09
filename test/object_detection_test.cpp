@@ -42,8 +42,8 @@
  * @brief	Test to check getters and setters
  */
 TEST(ObjectDetectionTest, objectNotDetected) {
-	ObjectDetection objectDetection;
-	objectDetection.setObjectDetected(false);
+    ObjectDetection objectDetection;
+    objectDetection.setObjectDetected(false);
     EXPECT_FALSE(objectDetection.getObjectDetected());
 }
 
@@ -51,7 +51,7 @@ TEST(ObjectDetectionTest, objectNotDetected) {
  * @brief	Test to check getters and setters
  */
 TEST(ObjectDetectionTest, objectDetected) {
-	ObjectDetection objectDetection;
+    ObjectDetection objectDetection;
     objectDetection.setObjectDetected(true);
     EXPECT_TRUE(objectDetection.getObjectDetected());
 }
@@ -60,9 +60,9 @@ TEST(ObjectDetectionTest, objectDetected) {
  * @brief	Test to check setting of object boundary
  */
 TEST(ObjectDetectionTest, setBoundary) {
-	ObjectDetection objectDetection;
-	/// Define object boundary
-	cv::Rect boundingBox = {0, 21, 113, 56};
+    ObjectDetection objectDetection;
+    /// Define object boundary
+    cv::Rect boundingBox = {0, 21, 113, 56};
     objectDetection.setObjectBoundary(boundingBox);
     EXPECT_EQ(objectDetection.getObjectBoundary(), boundingBox);
 }
@@ -71,16 +71,16 @@ TEST(ObjectDetectionTest, setBoundary) {
  * @brief	Test to check gaussian filtering
  */
 TEST(ObjectDetectionTest, gaussFilter) {
-	ObjectDetection objectDetection;
-	bool gaussCheck = true;
-	if (!objectDetection.convertedImage.empty()) {
-    	cv::Mat gaussImg = objectDetection.applyGaussBlur(
+    ObjectDetection objectDetection;
+    bool gaussCheck = true;
+    if (!objectDetection.convertedImage.empty()) {
+        cv::Mat gaussImg = objectDetection.applyGaussBlur(
     		objectDetection.convertedImage);
     	if(gaussImg.size() == objectDetection.convertedImage.size()) {
     		// These two images do not hace the same size due to smoothening
     		gaussCheck = false;
     	}
-	}
+    }
     EXPECT_TRUE(gaussCheck);
 }
 
@@ -88,11 +88,11 @@ TEST(ObjectDetectionTest, gaussFilter) {
  * @brief	Test to check object detection using hsv
  */
 TEST(ObjectDetectionTest, checkObject) {
-	ObjectDetection objectDetection;
-	bool objectDetected;
-	if (!objectDetection.convertedImage.empty()) {
+    ObjectDetection objectDetection;
+    bool objectDetected;
+    if (!objectDetection.convertedImage.empty()) {
     	objectDetected = objectDetection.detectObject(
     		objectDetection.applyGaussBlur(objectDetection.convertedImage));
-	}
+    }
     EXPECT_FALSE(objectDetected);
 }

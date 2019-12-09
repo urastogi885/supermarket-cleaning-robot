@@ -37,6 +37,7 @@
 #ifndef INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 #define INCLUDE_OBJECT_DETECTION_OBJECT_DETECTION_H_
 
+#include <vector>
 #include "ros/ros.h"
 #include "cv_bridge/cv_bridge.h"
 #include "opencv2/opencv.hpp"
@@ -49,8 +50,6 @@ class ObjectDetection {
   /// Define a subscriber object to data of the laser sensor
   ros::Subscriber subscribeImages;
   /// Store copy of the ros image converted into cv image
-  
-  
   cv::Mat hsvImage, maskImage;
   /// Define object coordinates
   cv::Rect objectBoundary;
