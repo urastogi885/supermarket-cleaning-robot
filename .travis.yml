@@ -32,6 +32,7 @@ before_install:
   - sudo sed -i "s/\"(1,\"/\"(0,\"/g" /var/lib/dpkg/info/ros-$ROS_DISTRO-librealsense.postinst 
   - sudo dpkg --configure ros-$ROS_DISTRO-librealsense
   - sudo apt-get install -yf
+  - sudo apt-get install -y --allow-unauthenticated ros-$ROS_DISTRO-move-base ros-$ROS_DISTRO-geometry-msgs ros-$ROS_DISTRO-sensor-msgs ros-$ROS_DISTRO-cv-bridge
   # Get matching gazebo
   - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
   - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
