@@ -28,7 +28,7 @@ include_directories(
 )
 
 ## Add executables
-add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/main.cpp)
+add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/navigator.cpp)
 
 add_executable(detector src/object_detection.cpp src/detector.cpp)
 
@@ -48,8 +48,10 @@ if(CATKIN_ENABLE_TESTING)
    test/main.cpp
    test/obstacle_avoidance_test.cpp
    test/turtlebot_test.cpp
+   test/object_detection_test.cpp
    src/obstacle_avoidance.cpp
-   src/turtlebot.cpp)
+   src/turtlebot.cpp
+   src/object_detection.cpp)
 
   target_link_libraries(
    test_project_x_robot 
