@@ -66,3 +66,33 @@ TEST(ObjectDetectionTest, setBoundary) {
     objectDetection.setObjectBoundary(boundingBox);
     EXPECT_EQ(objectDetection.getObjectBoundary(), boundingBox);
 }
+
+/**
+ * @brief	Test to check gaussian filtering
+ */
+TEST(ObjectDetectionTest, gaussFilter) {
+	ObjectDetection objectDetection;
+	bool gaussCheck = true;
+	if (!objectDetection.convertedImage.empty()) {
+    	cv::Mat gaussImg = objectDetection.applyGaussBlur(
+    		objectDetection.convertedImage);
+    	if(gaussImg.size() == objectDetection.convertedImage.size()) {
+    		// These two images do not hace the same size due to smoothening
+    		gaussCheck = false;
+    	}
+	}
+    EXPECT_TRUE(gaussCheck);
+}
+
+/**
+ * @brief	Test to check object detection using hsv
+ */
+TEST(ObjectDetectionTest, checkObject) {
+	ObjectDetection objectDetection;
+	bool objectDetected;
+	if (!objectDetection.convertedImage.empty()) {
+    	objectDetected = objectDetection.detectObject(
+    		objectDetection.applyGaussBlur(objectDetection.convertedImage));
+	}
+    EXPECT_FALSE(objectDetected);
+}
