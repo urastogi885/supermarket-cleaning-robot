@@ -8,46 +8,55 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
-ObjectDetection::ObjectDetection() {
-  it(nh);
-  cv::namedWindow(OPENCV_WINDOW);
+ObjectDetection::ObjectDetection() 
+  : it(nh) {
+  image_sub = it.subscribe("/image_raw", 500,
+    &ObjectDetection::convertImage, this);
 }
 
-cv::Mat ObjectDetection::readImage() {
-	templ = cv::imread("..data/template.png");
-	image_sub = it.subscribe("/camera/rgb/image_raw", 1,
-    &ObjectDetection::convertImage, this);
-  image_pub = it.advertise("/image_converter/output_video", 1);
-	return image_sub;
+cv::Mat ObjectDetection::readImage(std::string imagePath) {
+	// get mat format of image from image reader
+  cv::Mat cvImage = cv::imread(imagePath);
+  // check validity of image
+  if (cvImage.empty()) {
+    throw std::runtime_error("Invalid File Path");
+  }
+  return cvImage;
 }
 
 void ObjectDetection::convertImage(const sensor_msgs::Image::ConstPtr& imageData) {
-	cv_bridge::CvImagePtr cv_ptr;
-    try {
-      cv_ptr = cv_bridge::toCvCopy(imageData, sensor_msgs::image_encodings::BGR8);
-    }
-    catch (cv_bridge::Exception& e) {
-      ROS_ERROR("cv_bridge exception: %s", e.what());
-      return;
-    }
+  try {
+    convertedImage = cv_bridge::toCvCopy(imageData, "bgr8")->image;
+  }
+  catch (cv_bridge::Exception& e) {
+    ROS_ERROR_STREAM("cv_bridge exception: " << e.what());
+    return;
+  }
 }
 
-void ObjectDetection::templateMatching() {
-    int matchMethod;
-    image = ObjectDetection.readImage();
-    cv::matchTemplate(cv_ptr->image, templ, cv_ptr->result, matchMethod); /// result is now our source file which has new image which location of the matching features
-    cv::normalize( cv_ptr->result, result, 0, 1, NORM_MINMAX, -1, Mat());
-    double minVal; double maxVal; cv::Point minLoc; cv::Point maxLoc; cv::Point matchLoc;
-  	cv::minMaxLoc( cv_ptr->result, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
-  	matchLoc = maxLoc;
-  	cv::rectangle( cv_ptr->result, matchLoc, cv::Point( matchLoc.x + templ.cols , matchLoc.y + templ.rows ), Scalar::all(0), 2, 8, 0 );
-    cv::imshow(OPENCV_WINDOW, cv_ptr->result);
-    cv::waitKey(3);
+bool ObjectDetection::templateMatching() {
+  templ = readImage("../data/template.jpg");
+  /// Result is now our source file
+  /// It has location of the matching features
+  // Match Template
+  cv::matchTemplate(convertedImage, templ, result, cv::TemplateMatchModes(CV_TM_CCORR_NORMED));
+  if (result.empty()) {
+    return false;
+  }
+  cv::normalize( result, result, 0, 1, 32, -1, cv::Mat());
+  return true;
+}
 
-    // Output modified video stream
-    image_pub_.publish(cv_ptr->toImageMsg());
+cv::Rect ObjectDetection::getObjectLocation() {
+  cv::minMaxLoc( result, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat());
+  matchLoc = maxLoc;
+  objectBoundary.x = matchLoc.x;
+  objectBoundary.y = matchLoc.y;
+  objectBoundary.width = templ.cols;
+  objectBoundary.height = templ.rows;
+  cv::rectangle(result, objectBoundary, cv::Scalar(255, 0, 0) );
+  return objectBoundary;
 }
 
 ObjectDetection::~ObjectDetection() {
-  cv::destroyWindow(OPENCV_WINDOW);
 }
