@@ -96,11 +96,8 @@ void Turtlebot::moveBot(ObstacleAvoidance& obstacleAvoidance, ObjectDetection& o
   // Set the publishing rate
   ros::Rate loop_rate(publishRate);
   while (ros::ok()) {
-    /*
-    if(objectDetection.templateMatching()) {
-      objectDetection.getObjectLocation();
-    }
-    */
+    //objectDetection.applyGaussBlur();
+    //objectDetection.detectObject();
     if (obstacleAvoidance.checkObstacle()) {
       ROS_DEBUG_STREAM("Inside obstacle detected");
       /// Start turning the robot to avoid obstacles
