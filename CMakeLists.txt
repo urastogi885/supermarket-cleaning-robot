@@ -28,10 +28,13 @@ include_directories(
 )
 
 ## Add executables
-add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/object_detection.cpp src/main.cpp)
+add_executable(object_collection src/turtlebot.cpp src/obstacle_avoidance.cpp src/main.cpp)
+
+add_executable(detector src/object_detection.cpp src/detector.cpp)
 
 ## Add target link libraries
 target_link_libraries(object_collection ${catkin_LIBRARIES} ${OpenCV_LIBS})
+target_link_libraries(detector ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
 ## Enable catkin test and add files for the same
 if(CATKIN_ENABLE_TESTING)
@@ -56,5 +59,6 @@ if(CATKIN_ENABLE_TESTING)
   add_dependencies(
   	test_project_x_robot
     object_collection
+    detector
     ${catkin_EXPORTED_TARGETS})
 endif()

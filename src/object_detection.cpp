@@ -43,16 +43,16 @@
 #include "opencv2/imgproc/imgproc.hpp"
 
 ObjectDetection::ObjectDetection() {
-  subscibeImages = nh.subscribe("/camera/rgb/image_raw", 1,
+  subscribeImages = nh.subscribe("/camera/rgb/image_raw", 1,
     &ObjectDetection::convertImage, this);
 }
 
-ObjectDetection::~ObjectDetection() {
-}
-
 void ObjectDetection::convertImage(const sensor_msgs::Image::ConstPtr& imageData) {
+  cv_bridge::CvImagePtr cv_ptr;
   try {
-    convertedImage = cv_bridge::toCvCopy(imageData, "bgr8")->image;
+    cv_ptr = cv_bridge::toCvCopy(imageData, sensor_msgs::image_encodings::BGR8);
+    cvtImage = cv_ptr->image;
+    cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e) {
     ROS_ERROR_STREAM("cv_bridge exception: " << e.what());
@@ -60,13 +60,13 @@ void ObjectDetection::convertImage(const sensor_msgs::Image::ConstPtr& imageData
   }
 }
 
-bool ObjectDetection::detectObject() {
+bool ObjectDetection::detectObject(cv::Mat image) {
   /// Convert image from bgr to hsv
-  cv::cvtColor(convertedImage, hsvImage, CV_BGR2HSV);
+  cv::cvtColor(image, hsvImage, CV_BGR2HSV);
   /// Detect hsv within the set limits
   cv::inRange(hsvImage, colorLowerLimit, colorUpperLimit, maskImage);
   /// Get image size to modify size of mask image
-  imageSize = convertedImage.size();
+  imageSize = image.size();
   maskImage(cv::Rect(0, 0, imageSize.width, 0.8*imageSize.height)) = 0;
   /// Find contours for better visualization
   cv::findContours(maskImage, imageArray, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
@@ -86,7 +86,7 @@ bool ObjectDetection::detectObject() {
     /// Set boundary of the object in the image
     setObjectBoundary(cv::boundingRect(imageArray[maxAreaContour]));
     /// Draw the rectangle using the bounding box
-    cv::rectangle(convertedImage, getObjectBoundary(), cv::Scalar(255, 0, 0), 2);
+    rectangle(image, getObjectBoundary(), cv::Scalar(255, 0, 0), 2);
   }
   /// Mask image to limit the future turns affecting the output
   maskImage(cv::Rect(0.7*imageSize.width, 0, \
@@ -102,9 +102,11 @@ bool ObjectDetection::detectObject() {
   return getObjectDetected();
 }
 
-cv::Mat ObjectDetection::applyGaussBlur() {
+cv::Mat ObjectDetection::applyGaussBlur(cv::Mat cvtImage) {
   cv::Mat output;
   /// Apply gaussian filter
-  cv::GaussianBlur(convertedImage, output, cv::Size(3, 3), 0.1, 0.1);
+  cv::GaussianBlur(cvtImage, output, cv::Size(3, 3), 0.1, 0.1);
   return output;
 }
+
+ObjectDetection::~ObjectDetection() {}

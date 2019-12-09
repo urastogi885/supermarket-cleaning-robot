@@ -47,9 +47,10 @@ class ObjectDetection {
   /// Define the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Define a subscriber object to data of the laser sensor
-  ros::Subscriber subscibeImages;
+  ros::Subscriber subscribeImages;
   /// Store copy of the ros image converted into cv image
-  cv::Mat convertedImage;
+  
+  
   cv::Mat hsvImage, maskImage;
   /// Define object coordinates
   cv::Rect objectBoundary;
@@ -69,6 +70,8 @@ class ObjectDetection {
   * @param none
   * @return a constructor has no return
   */
+  cv::Mat cvtImage;
+  cv::Mat img_filt;  /// Filtered image in opencv matrix format
   ObjectDetection();
 
   /**
@@ -91,14 +94,14 @@ class ObjectDetection {
    * @param converted opencv image
    * @return match found
    */
-  bool detectObject();
+  bool detectObject(cv::Mat image);
 
   /**
    * @brief Method to gaussian filter on the image
    * @param converted opencv image
    * @return image blurred using gaussian filter
    */
-  cv::Mat applyGaussBlur();
+  cv::Mat applyGaussBlur(cv::Mat cvtImage);
 
   /**
    * @brief Get boundary of the object in the image

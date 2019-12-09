@@ -1,8 +1,4 @@
 <launch>
-    <arg
-    	name = "enableRosBag" 
-        default = "false"
-    />
 
     <!-- Launch the turtlebot world in gazebo-->
     <include file = "$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
@@ -15,5 +11,12 @@
         name = "object_collection"
         output = "screen"
         launch-prefix = "xterm -e"
+    />
+
+    <node 
+        pkg = "supermarket_cleaning_robot"
+        type = "detector"
+        name = "detector"
+        output = "screen"
     />
 </launch>

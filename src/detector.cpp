@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019, Naman Gupta, Umang Rastogi
+ * Copyright (c) 2019, Naman Gupta
  *
  * Redistribution and use in source and binary forms, with or without  
  * modification, are permitted provided that the following conditions are 
@@ -31,27 +31,26 @@
  */
 
 /**
- * @file       main.cpp
- * @author     Naman Gupta
- * @author     Umang Rastogi
- * @copyright  GNU
- * @brief      Implementation of algorithm
+ *@file       listener.cpp
+ *@author     Naman Gupta
+ *@copyright  GNU
+ *@brief      ROS subscriber subscribes to talker.cpp to listen the message
+ *            sent by the publisher node.
  */
-#include "ros/ros.h"
-#include "turtlebot/turtlebot.h"
-#include "obstacle_avoidance/obstacle_avoidance.h"
 
-/**
- * @brief      main function
- * @param      argc
- * @param      argv
- * @return     none
- */
-int main(int argc, char* argv[]) {
-  ros::init(argc, argv, "object_collection");
-  ObstacleAvoidance obstacleAvoidance;
-  // ObjectDetection objectDetection;
-  Turtlebot turtlebot;
-  turtlebot.moveBot(obstacleAvoidance);
+#include <ros/ros.h>
+#include "object_detection/object_detection.h"
+
+int main(int argc, char **argv) {
+
+  ros::init(argc, argv, "detector");
+  ObjectDetection objDet;
+
+  while (ros::ok()) {
+    if (!objDet.cvtImage.empty()) {
+        objDet.img_filt = objDet.applyGaussBlur(objDet.cvtImage);
+    }
+  ros::spinOnce();
+  }
   return 0;
 }
