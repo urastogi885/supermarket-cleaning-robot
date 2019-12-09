@@ -21,7 +21,7 @@ items.
 
 For prototyping, we are focusing on only one task that is identifying and collecting the items using the
 robot. The robot will roam in a supermarket like environment in Gazebo and identify the type of items
-that it needs to collect. It identifies the item using a camera, mounted on its base, and moves towards the
+that it needs to collect. It identifies the item using a camera and HSV Color Detection algorithm, mounted on its base, and moves towards the
 fallen item. Here, we are considering objects such as food, soft drinks cans and it is assumed that the robot
 will already know the type of item that it needs to pick. As the robot reaches the location of the item and
 touches it, the item will vanish depicting that the item is collected using a suction cup. The robot will
@@ -31,7 +31,7 @@ has an obstacle avoidance feature that is used to prevent the robot from collidi
 humans, uninteresting items and walls/shelves.
 
 <p align="center">
-<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/initial_proposal_setup.png">
+<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/supermarket_world.jpg">
 <b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b>
 </p>
 
@@ -51,13 +51,13 @@ to access our Sprint notes document.
 ## Accessing the UML Diagrams
 
 - Open the *UML* directory of the project.
-- Access UML diagrams from the *initial* folder located within *UML* sub-directory.
+- Access UML diagrams from *uml* sub-directory.
 
 ## API Documentations
 
 - [Gazebo Population Tag](http://gazebosim.org/tutorials?tut=model_population&cat=build_world)
 - [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages)
-- [Template Matching](https://docs.opencv.org/master/de/da9/tutorial_template_matching.html)
+- [HSV Color Detection](https://docs.opencv.org/trunk/df/d9d/tutorial_py_colorspaces.html)
 
 ## Dependencies
 
@@ -76,49 +76,46 @@ to access our Sprint notes document.
   the following [*link*](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) to just install *Gazebo* on your
   machine.
 - Ensure successful installation by running *Gazebo* via your terminal window:
-```shell script
+```
 gazebo
 ```
 - An empty window of *Gazebo Simulator* should be launched.
 - Make sure that turtlebot packages have been installed on your machine using the following commands:
-```shell script
+```
 roslaunch turtlebot_gazebo turtlebot_world.launch
 ``` 
 - A window of *Gazebo Simulator* with various items and a turtlebot should be launched.
 - If an error pops up upo launching the turtlebot world, then install the necessary turtlebot packages:
-```shell script
+```
 sudo apt install ros-kinetic-turtlebot-gazebo ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers
 ```
 - Create your ROS workspace by following instructions on the [*create ROS workspace tutortial page*](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
    
 ## Known Bugs and Issues
 
-This project is under-development. Currently, we are facing build issues. Sorry for the inconvenience.
+Right now we are facing the object collection issue, where our idea is to remove the object from the world as the robot reached the object. The can should be vanished representing that the can is collected by the robot.
 
 ## Build
 
-- ***Ignore this section*** as nothing to be built has been added yet.
-- Even if you run the following, it will not impact your existing workspace.
-- Switch to your *src* sub-directory of your ROS workspace to clone this repository.
-```shell script
+Switch to your *src* sub-directory of your ROS workspace to clone this repository.
+```
 <ROS Workspace>/src
 ```
 - Run the following commands to clone and build this project:
-```shell script
+```
 git clone --recursive https://github.com/urastogi885/obstacle_avoidance_simulation
-git checkout Phase3
 cd ..
 catkin_make
 ```
 
 ## Test
 
-Close and terminate everything including rosmaster. In a new terminal, switch to the ROS workspace and build the tests. Type
+Close and terminate everything including rosmaster. In a new terminal, switch to the ROS workspace and build the tests.  Type
 
 ```
 cd catkin_ws
 source devel/setup.bash
-catkin_make run_tests_test_project_x_robot
+catkin_make run_tests_supermarket_cleaning_robot
 ```
 
 ## Run
@@ -141,7 +138,7 @@ sudo apt-get install doxygen
 Now from the cloned directory run:
 
 ```
-doxygen doxygen
+doxygen Doxyfile
 ```
 
 Generated doxygen files are in html format and you can find them in ./docs folder. With the following command
@@ -152,4 +149,8 @@ firefox docs/html/index.html
 
 ## Demo
 
-We will update in the next phase by next week.
+In this demo, the turtlebot is our cleaner robot which traverses in the supermarket environment and keeps on scanning for the cans. As the can is detected, a bounding box is created and then the turtlebot apprached towards the can to collect it.
+<p align="center">
+<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/demo.gif">
+<b>Figure 2 - Demo of Robot scanning and detecting items</b>
+</p>
