@@ -99,13 +99,6 @@ class Turtlebot {
   float turn(float angVelZ);
 
   /**
-   * @brief   Collect the object
-   * @param   none
-   * @return  void
-   */
-  bool collectObject();
-
-  /**
    * @brief   Control the motion of the bot
    * @param   Reference to Obstacle Avoidance class
    * @return  none
