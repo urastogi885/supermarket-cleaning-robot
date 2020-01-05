@@ -31,8 +31,8 @@ has an obstacle avoidance feature that is used to prevent the robot from collidi
 humans, uninteresting items and walls/shelves.
 
 <p align="center">
-<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/supermarket_world.jpg">
-<b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b>
+  <img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/supermarket_world.jpg">
+  <b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b>
 </p>
 
 
@@ -40,6 +40,19 @@ humans, uninteresting items and walls/shelves.
 
 - [Umang Rastogi](https://github.com/urastogi885) - Pursuing masters in Robotics at University of Maryland | B.Tech in Electronics & Communication Engineering
 - [Naman Gupta](https://github.com/namangupta98) - Grad Student at University of Maryland, pursuing M.Eng. in Robotics.
+
+## Demo
+
+In this demo, the turtlebot is our cleaner robot which traverses in the supermarket environment and keeps on scanning for the cans. As the can is detected, a bounding box is created and then the turtlebot apprached towards the can to collect it.
+
+<p align="center">
+  <img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/demo.gif">
+  <br><b>Figure 2 - Demo of Robot scanning and detecting items</b><br>
+</p>
+
+## Presentation
+
+Click on the link to preview [presentation](https://docs.google.com/presentation/d/1KiABS_kfmvH2YfD9WYNnicjoehHe6gC2hseT8R00nM4/edit#slide=id.g6c2dd6b921_0_107)
 
 ## AIP and Sprint Documents
 
@@ -58,6 +71,12 @@ to access our Sprint notes document.
 - [Gazebo Population Tag](http://gazebosim.org/tutorials?tut=model_population&cat=build_world)
 - [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages)
 - [HSV Color Detection](https://docs.opencv.org/trunk/df/d9d/tutorial_py_colorspaces.html)
+
+## Known Bugs and Issues
+
+- Right now we are facing the object collection issue, where our idea is to remove the object from the world as the robot reached the object. 
+- The Cola Can should be vanished representing that the object has been collected by the robot.
+- We are working to solve this issue.
 
 ## Dependencies
 
@@ -90,10 +109,6 @@ roslaunch turtlebot_gazebo turtlebot_world.launch
 sudo apt install ros-kinetic-turtlebot-gazebo ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers
 ```
 - Create your ROS workspace by following instructions on the [*create ROS workspace tutortial page*](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
-   
-## Known Bugs and Issues
-
-Right now we are facing the object collection issue, where our idea is to remove the object from the world as the robot reached the object. The can should be vanished representing that the can is collected by the robot.
 
 ## Build
 
@@ -146,15 +161,3 @@ Generated doxygen files are in html format and you can find them in ./docs folde
 ```
 firefox docs/html/index.html
 ```
-
-## Demo
-
-In this demo, the turtlebot is our cleaner robot which traverses in the supermarket environment and keeps on scanning for the cans. As the can is detected, a bounding box is created and then the turtlebot apprached towards the can to collect it.
-<p align="center">
-<img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/demo.gif">
-<b>Figure 2 - Demo of Robot scanning and detecting items</b>
-</p>
-
-## Presentation
-
-Click on the link to preview [presentation](https://docs.google.com/presentation/d/1KiABS_kfmvH2YfD9WYNnicjoehHe6gC2hseT8R00nM4/edit#slide=id.g6c2dd6b921_0_107)
