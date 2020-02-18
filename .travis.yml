@@ -1,7 +1,7 @@
 dist: xenial
-sudo: required
 cache: apt
 language: generic
+os: linux
 
 # Configuration variables. All variables are global
 env:
