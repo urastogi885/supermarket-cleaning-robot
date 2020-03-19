@@ -1,6 +1,6 @@
 # Project X
-[![Build Status](https://travis-ci.org/urastogi885/Supermarket-Cleaning-Robot.svg?branch=master)](https://travis-ci.org/urastogi885/Supermarket-Cleaning-Robot)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/urastogi885/supermarket-cleaning-robot.svg?branch=master)](https://travis-ci.org/urastogi885/supermarket-cleaning-robot)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/urastogi885/supermarket-cleaning-robot/blob/master/LICENSE)
 ---
 
 ## Overview
@@ -30,7 +30,7 @@ has an obstacle avoidance feature that is used to prevent the robot from collidi
 humans, uninteresting items and walls/shelves.
 
 <p align="center">
-  <img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/supermarket_world.jpg">
+  <img src="https://github.com/urastogi885/supermarket-cleaning-robot/blob/master/data/readme_images/supermarket_world.jpg">
   <b>Figure 1 - Robot approaching towards the cans lying on the ground to collect them</b>
 </p>
 
@@ -45,7 +45,7 @@ humans, uninteresting items and walls/shelves.
 In this demo, the turtlebot is our cleaner robot which traverses in the supermarket environment and keeps on scanning for the cans. As the can is detected, a bounding box is created and then the turtlebot apprached towards the can to collect it.
 
 <p align="center">
-  <img src="https://github.com/urastogi885/Supermarket-Cleaning-Robot/blob/master/data/readme_images/demo.gif">
+  <img src="https://github.com/urastogi885/supermarket-cleaning-robot/blob/master/data/readme_images/demo.gif">
   <br><b>Figure 2 - Demo of Robot scanning and detecting items</b><br>
 </p>
 
