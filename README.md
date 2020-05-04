@@ -1,4 +1,4 @@
-# Project X
+# Supermarket Cleaning Robot
 [![Build Status](https://travis-ci.org/urastogi885/supermarket-cleaning-robot.svg?branch=master)](https://travis-ci.org/urastogi885/supermarket-cleaning-robot)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/urastogi885/supermarket-cleaning-robot/blob/master/LICENSE)
 ---
