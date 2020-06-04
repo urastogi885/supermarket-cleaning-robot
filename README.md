@@ -51,7 +51,7 @@ In this demo, the turtlebot is our cleaner robot which traverses in the supermar
 
 ## Presentation
 
-Click on the link to preview [presentation](https://docs.google.com/presentation/d/1KiABS_kfmvH2YfD9WYNnicjoehHe6gC2hseT8R00nM4/edit#slide=id.g6c2dd6b921_0_107)
+Click on the link to preview [presentation](https://docs.google.com/presentation/d/1KiABS_kfmvH2YfD9WYNnicjoehHe6gC2hseT8R00nM4/edit?usp=sharing)
 
 ## AIP and Sprint Documents
 
