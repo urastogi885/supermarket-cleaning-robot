@@ -79,17 +79,16 @@ to access our Sprint notes document.
 
 ## Dependencies
 
-- Ubuntu 16.04
-- ROS Kinetic
+- Ubuntu 16.04/18.04
+- ROS Kinetic/Melodic
 - Gazebo
-- Turtlebot Packages
+- Turtlebot-3 Packages
 
 ## Install Dependences
 
-- This project was developed using ROS Kinetic.
-- It is highly recommended that ROS Kinetic is properly installed on your system before the use of this project.
-- Follow the instructions on the [*ROS kinetic install tutorial page*](http://wiki.ros.org/kinetic/Installation/Ubuntu)
-  to install ***Full-Desktop Version*** of ROS Kinetic.
+- It is highly recommended that ROS Kinetic/Melodic is properly installed on your system before the use of this project.
+- Follow the instructions on the [*ROS Kinetic install tutorial page*](http://wiki.ros.org/kinetic/Installation/Ubuntu) or the 
+  [*ROS Melodic install tutorial page*](http://wiki.ros.org/melodic/Installation/Ubuntu) to install ***Full-Desktop Version*** of ROS Kinetic.
 - The full-version would help you install *Gazebo* as well. If you have ROS Kinetic pre-installed on your machine, use
   the following [*link*](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) to just install *Gazebo* on your
   machine.
@@ -98,16 +97,22 @@ to access our Sprint notes document.
 gazebo
 ```
 - An empty window of *Gazebo Simulator* should be launched.
-- Make sure that turtlebot packages have been installed on your machine using the following commands:
-```
-roslaunch turtlebot_gazebo turtlebot_world.launch
-``` 
-- A window of *Gazebo Simulator* with various items and a turtlebot should be launched.
-- If an error pops up upo launching the turtlebot world, then install the necessary turtlebot packages:
-```
-sudo apt install ros-kinetic-turtlebot-gazebo ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers
-```
 - Create your ROS workspace by following instructions on the [*create ROS workspace tutortial page*](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
+- Make sure that Turtlebot-3 packages have been installed on your machine using the following commands:
+```
+cd <ROS_WORKSPACE>/
+source devel/setup.bash
+export TURTLEBOT3_MODEL=burger
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+``` 
+- A window of *Gazebo Simulator* with various items with a Turtlebot-3 burger robot should be launched.
+- If an error pops up upon launching the Turtlebot-3 world, then install the necessary Turtlebot-3 packages:
+```
+cd <ROS_WORKSPACE>/
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs
+git clone https://github.com/ROBOTIS-GIT/turtlebot3
+cd ../ && catkin_make
+```
 
 ## Build
 
@@ -117,8 +122,8 @@ Switch to your *src* sub-directory of your ROS workspace to clone this repositor
 ```
 - Run the following commands to clone and build this project:
 ```
-git clone --recursive https://github.com/urastogi885/Supermarket-Cleaning-Robot
-cd ..
+git clone --recursive https://github.com/urastogi885/supermarket-cleaning-robot
+cd ../
 catkin_make
 ```
 
